@@ -1,0 +1,13 @@
+# adobaRo
+
+> adobaRo는 실행형 AI Agent로 크리에이터의 콘텐츠를 8개 언어와 중국 플랫폼으로 자동 현지화하고 배포하는 콘텐츠 글로벌화 플랫폼입니다. AI 에이전트 Robin이 번역부터 포맷 변환, 업로드까지 한 번에 처리해, 크리에이터는 콘텐츠 제작에만 집중할 수 있습니다.
+
+adobaRo는 본 서비스(https://adobaro.com)의 마케팅 랜딩 페이지입니다.
+
+## Pages
+
+- [Main](https://home.adobaro.com/ko): 서비스 소개, 문제/해결, adobaRo 유무 비교, 후기, FAQ
+- [기능](https://home.adobaro.com/ko/features): 글로벌 채널 개설, 콘텐츠 로컬라이징, 브랜드 협업, 수익 정산
+- [요금제](https://home.adobaro.com/ko/pricing): Agent 구독 플랜(Lite/Boost/Max)과 RP(Ro-Power) 패키지
+- [adobaRo 소식](https://home.adobaro.com/ko/news): 크리에이터 대상 이벤트 및 소식
+- [인사이트 매거진](https://home.adobaro.com/ko/magazine): 해외 진출 인사이트 아티클

@@ -1,0 +1,56 @@
+import { getTranslations } from 'next-intl/server'
+import { SectionHeading } from '@/shared/ui/SectionHeading'
+import { JsonLd } from '@/shared/seo/JsonLd'
+import { howToSchema } from '@/shared/seo/schemas/how-to'
+import { cn } from '@/shared/lib/cn'
+
+const STEP_KEYS = ['create', 'config', 'edit', 'deliver'] as const
+
+const PILL_GRADIENT = [
+  'from-enterprise-accent to-enterprise-accent-deep',
+  'from-enterprise-accent-deep to-enterprise-indigo-700',
+  'from-enterprise-indigo-700 to-enterprise-indigo-900',
+  'from-enterprise-indigo-900 to-enterprise-indigo-950',
+]
+
+// Figma has each step shift 120px right as it rises — a diagonal staircase, not a flat stack
+const PILL_INDENT = ['lg:ml-0', 'lg:ml-[120px]', 'lg:ml-[240px]', 'lg:ml-[360px]']
+
+export async function CustomizationSection() {
+  const t = await getTranslations('enterprise.customization')
+
+  const schema = howToSchema({
+    name: t('title').replace('\n', ' '),
+    steps: STEP_KEYS.map((key) => ({ name: t(`steps.${key}.name`), text: t(`steps.${key}.text`) })),
+  })
+
+  return (
+    <section className="bg-enterprise-bg px-6 py-20 lg:px-10 lg:py-32">
+      <JsonLd data={schema} />
+      <div className="mx-auto flex max-w-[1360px] flex-col gap-16 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-6">
+          <SectionHeading level={2} className="whitespace-pre-line text-white">
+            {t('title')}
+          </SectionHeading>
+          <p className="whitespace-pre-line text-b2 text-white/80">{t('description')}</p>
+        </div>
+        <ol className="flex w-full flex-col items-start gap-4 lg:w-[680px] lg:flex-col-reverse">
+          {STEP_KEYS.map((key, index) => (
+            <li
+              key={key}
+              className={cn(
+                'rounded-full border border-white/10 bg-gradient-to-r px-10 py-6',
+                PILL_GRADIENT[index],
+                PILL_INDENT[index],
+              )}
+            >
+              <SectionHeading level={3} className="whitespace-nowrap text-white">
+                {t(`steps.${key}.name`)}
+              </SectionHeading>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )
+}
