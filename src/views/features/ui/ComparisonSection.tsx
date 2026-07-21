@@ -36,7 +36,9 @@ export async function ComparisonSection() {
                   <span className="flex w-[67px] shrink-0 items-center justify-center">
                     <Image src="/images/logo/ro-mark.svg" alt="adobaRo" width={48} height={48} />
                   </span>
-                  <p className="text-h3 text-[#2c3e50]">{t(`rows.${row.key}.adobaro`)}</p>
+                  <p className="text-h3 text-[#2c3e50]">
+                    {t.rich(`rows.${row.key}.adobaro`, { br: () => <br /> })}
+                  </p>
                 </div>
               </div>
             </div>

@@ -11,7 +11,7 @@ export async function ProcessSection() {
   const steps = STEP_KEYS.map((key) => t(`steps.${key}`))
   const schema = howToSchema({
     name: t.markup('title', { br: () => ' ' }),
-    description: t('description'),
+    description: t.markup('description', { br: () => ' ' }),
     steps: steps.map((step) => ({ name: step, text: step })),
   })
 
@@ -23,7 +23,7 @@ export async function ProcessSection() {
           <SectionHeading level={2} size="h2-strong">
             {t.rich('title', { br: () => <br /> })}
           </SectionHeading>
-          <p className="text-b1 text-text-secondary">{t('description')}</p>
+          <p className="text-b1 text-text-secondary">{t.rich('description', { br: () => <br /> })}</p>
         </div>
         <ol className="flex flex-col items-center">
           {steps.map((step, index) => (

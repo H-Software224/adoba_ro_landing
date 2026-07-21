@@ -37,7 +37,7 @@ export function LocaleSwitcher({ variant = 'default' }: { variant?: 'default' | 
   }
 
   return (
-    <div className="flex items-center gap-1 text-b3">
+    <div className="flex items-center gap-1 rounded-full border border-white bg-[#f6f8fa] p-1 text-b3">
       {routing.locales.map((nextLocale) => (
         <button
           key={nextLocale}
@@ -45,8 +45,10 @@ export function LocaleSwitcher({ variant = 'default' }: { variant?: 'default' | 
           onClick={() => router.replace(pathname, { locale: nextLocale })}
           aria-current={nextLocale === locale}
           className={cn(
-            'rounded-full px-2 py-1 text-[13px] transition-colors sm:px-3 sm:text-b3',
-            nextLocale === locale ? 'bg-brand text-white' : 'text-text-secondary hover:bg-text-primary/5',
+            'rounded-full px-2 py-1 text-[13px] transition-colors sm:px-3 sm:text-[14px]',
+            nextLocale === locale
+              ? 'bg-text-primary text-white shadow-[0px_4px_2px_rgba(0,0,0,0.1)]'
+              : 'text-text-secondary hover:text-text-primary',
           )}
         >
           {LOCALE_LABEL[nextLocale]}

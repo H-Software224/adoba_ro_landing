@@ -67,7 +67,7 @@ export function ScrollCarousel({ children, className }: { children: ReactNode; c
           <Image src="/images/icons/arrow-right.svg" alt="" width={32} height={32} />
         </button>
       </div>
-      <div ref={scrollRef} className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2">
+      <div ref={scrollRef} className="flex snap-x snap-mandatory gap-6 overflow-x-hidden scroll-smooth pb-2">
         {children}
       </div>
     </div>

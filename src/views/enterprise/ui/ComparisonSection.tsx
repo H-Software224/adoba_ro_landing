@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
+import { cn } from '@/shared/lib/cn'
 
 const ROW_KEYS = ['data', 'time', 'cycle', 'insight', 'customization'] as const
 
@@ -12,8 +13,8 @@ export async function ComparisonSection() {
       <SectionHeading level={2} className="whitespace-pre-line text-center text-white">
         {t('title')}
       </SectionHeading>
-      <div className="mx-auto mt-16 max-w-[1360px]">
-        <table className="w-full border-collapse text-left">
+      <div className="mx-auto mt-16 max-w-[1360px] overflow-x-auto">
+        <table className="w-full min-w-[560px] border-collapse text-left">
           <caption className="sr-only">{t('title')}</caption>
           <thead>
             <tr>
@@ -44,9 +45,10 @@ export async function ComparisonSection() {
                 </th>
                 <td className="px-4 py-8 text-b1 text-white/80">{t(`rows.${key}.studio`)}</td>
                 <td
-                  className={`bg-white/10 px-10 py-8 text-b1 font-semibold text-white ${
-                    index === ROW_KEYS.length - 1 ? 'rounded-b-3xl' : ''
-                  }`}
+                  className={cn(
+                    'bg-white/10 px-10 py-8 text-b1 font-semibold text-white',
+                    index === ROW_KEYS.length - 1 && 'rounded-b-3xl',
+                  )}
                 >
                   {t(`rows.${key}.enterprise`)}
                 </td>

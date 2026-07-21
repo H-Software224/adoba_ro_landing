@@ -40,9 +40,7 @@ export async function PlansSection() {
     <section className="relative z-10 -mt-[40vh] rounded-t-[40px] bg-[#e8ebf6] px-6 py-20 lg:px-10">
       <JsonLd data={schemas} />
       <div className="mx-auto flex max-w-[1360px] flex-col gap-24">
-        <SectionHeading level={2} className="text-center">
-          {t.rich('plans.title', { br: () => <br /> })}
-        </SectionHeading>
+        <SectionHeading level={2}>{t.rich('plans.title', { br: () => <br /> })}</SectionHeading>
         <PricingTable title={t('plans.subscription.title')} plans={subscriptionPlans} />
         <PricingTable title={t('plans.rpPackage.title')} plans={rpPackages} />
       </div>

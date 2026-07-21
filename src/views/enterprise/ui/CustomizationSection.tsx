@@ -28,23 +28,23 @@ export async function CustomizationSection() {
     <section className="bg-enterprise-bg px-6 py-20 lg:px-10 lg:py-32">
       <JsonLd data={schema} />
       <div className="mx-auto flex max-w-[1360px] flex-col gap-16 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-col gap-6">
+        <div className="flex min-w-0 flex-1 flex-col gap-6">
           <SectionHeading level={2} className="whitespace-pre-line text-white">
             {t('title')}
           </SectionHeading>
           <p className="whitespace-pre-line text-b2 text-white/80">{t('description')}</p>
         </div>
-        <ol className="flex w-full flex-col items-start gap-4 lg:w-[680px] lg:flex-col-reverse">
+        <ol className="flex w-full flex-col items-start gap-4 lg:w-fit lg:shrink-0 lg:flex-col-reverse">
           {STEP_KEYS.map((key, index) => (
             <li
               key={key}
               className={cn(
-                'rounded-full border border-white/10 bg-gradient-to-r px-10 py-6',
+                'flex items-center justify-center rounded-full border border-white/10 bg-gradient-to-r px-10 py-6 lg:w-[460px]',
                 PILL_GRADIENT[index],
                 PILL_INDENT[index],
               )}
             >
-              <SectionHeading level={3} className="whitespace-nowrap text-white">
+              <SectionHeading level={3} className="whitespace-nowrap text-center text-white">
                 {t(`steps.${key}.name`)}
               </SectionHeading>
             </li>

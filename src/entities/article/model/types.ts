@@ -36,14 +36,21 @@ export interface ArticleFullBody {
   /** Omitted when the source post has no distinct "핵심 요약" block */
   summaryTitle?: string
   summaryText?: string
+  /** Bulleted variant of summaryText. `**text**` spans render as bold. */
+  summaryItems?: string[]
   pullQuote?: string
   /** Illustrative image shown after the pull quote, e.g. a before/after comparison */
-  bodyImage?: string
-  intro: string
+  bodyImage?: { src: string; aspectRatio: string }
+  /** Omitted when the source post opens straight into its first titled section */
+  intro?: string
   sections: {
     title: string
     intro?: string
+    /** Illustrative image shown after this section's content */
+    image?: { src: string; aspectRatio: string }
     subsections?: { title: string; text: string }[]
+    /** Simple data table shown after this section's content (or after its subsections) */
+    table?: { headers: string[]; rows: string[][] }
   }[]
   conclusion?: { title: string; paragraphs: string[] }
 }

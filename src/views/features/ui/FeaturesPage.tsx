@@ -16,10 +16,13 @@ export async function FeaturesPage({ params }: { params: Promise<{ locale: strin
 
   const t = await getTranslations('features')
   const subServices = [
-    { name: t('howto.title'), description: t('howto.description') },
-    { name: t.markup('process.title', { br: () => ' ' }), description: t('process.description') },
-    { name: t('brand.title'), description: t('brand.description') },
-    { name: t('wallet.title'), description: t('wallet.description') },
+    { name: t('howto.title'), description: t.markup('howto.description', { br: () => ' ' }) },
+    {
+      name: t.markup('process.title', { br: () => ' ' }),
+      description: t.markup('process.description', { br: () => ' ' }),
+    },
+    { name: t('brand.title'), description: t.markup('brand.description', { br: () => ' ' }) },
+    { name: t('wallet.title'), description: t.markup('wallet.description', { br: () => ' ' }) },
   ]
 
   const schema = serviceSchema({

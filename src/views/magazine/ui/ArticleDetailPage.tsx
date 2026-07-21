@@ -2,7 +2,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { Accordion } from '@/shared/ui/Accordion'
-import { Link } from '@/shared/i18n/navigation'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { blogPostingSchema } from '@/shared/seo/schemas/blog'
 import { breadcrumbListSchema } from '@/shared/seo/schemas/breadcrumb-list'
@@ -32,7 +31,7 @@ export async function ArticleDetailPage({
     image: [
       article.image ? `${SITE_URL}${article.image}` : undefined,
       article.sourceImage,
-      article.fullBody?.bodyImage ? `${SITE_URL}${article.fullBody.bodyImage}` : undefined,
+      article.fullBody?.bodyImage ? `${SITE_URL}${article.fullBody.bodyImage.src}` : undefined,
     ].filter((src): src is string => Boolean(src)),
     datePublished: article.datePublished ?? '',
     authorName: article.authorName ?? 'adobaRo',
@@ -52,19 +51,6 @@ export async function ArticleDetailPage({
     <>
       <JsonLd data={faqSchema ? [schema, breadcrumbSchema, faqSchema] : [schema, breadcrumbSchema]} />
       <div className="mx-auto flex max-w-[760px] flex-col gap-6 px-6 pt-16">
-        <nav aria-label={tBreadcrumb('nav')} className="flex flex-wrap items-center gap-2 text-b3 text-text-tertiary">
-          <Link href="/" className="hover:text-text-secondary">
-            {tBreadcrumb('home')}
-          </Link>
-          <span aria-hidden="true">/</span>
-          <Link href="/magazine" className="hover:text-text-secondary">
-            {tBreadcrumb('magazine')}
-          </Link>
-          <span aria-hidden="true">/</span>
-          <span aria-current="page" className="text-text-secondary">
-            {article.title}
-          </span>
-        </nav>
         <SectionHeading level={1} size="h2">
           {article.title}
         </SectionHeading>

@@ -29,27 +29,30 @@ export async function FaqSection() {
             <details key={item.key} name="enterprise-faq" className="group border-b border-white/20 py-6">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-h3 font-semibold text-white marker:content-none">
                 {item.question}
-                <Image
-                  src="/images/enterprise/icon-plus.png"
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="shrink-0 transition-transform group-open:rotate-45"
-                />
+                <span className="relative block size-8 shrink-0">
+                  <Image src="/images/enterprise/icon-plus.png" alt="" fill className="group-open:hidden" />
+                  <Image
+                    src="/images/enterprise/icon-minus.svg"
+                    alt=""
+                    fill
+                    className="hidden group-open:block"
+                  />
+                </span>
               </summary>
-              <div className="mt-6 flex flex-col gap-6">
+              <div className="mt-6 flex flex-col gap-3">
                 <p className="whitespace-pre-line text-b3 text-white/80">{item.answer}</p>
                 {item.links && (
-                  <div className="flex flex-wrap gap-6">
+                  <div className="flex flex-col gap-3">
                     {item.links.map((link) => (
                       <a
                         key={link.label}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-b3 text-white underline underline-offset-2 transition-colors hover:text-white/80"
+                        className="inline-flex w-fit items-center gap-0.5 text-b3 text-enterprise-accent transition-colors hover:text-enterprise-accent/80"
                       >
                         {link.label}
+                        <Image src="/images/enterprise/icon-arrow-right.svg" alt="" width={24} height={24} />
                       </a>
                     ))}
                   </div>

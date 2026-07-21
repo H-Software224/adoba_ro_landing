@@ -22,7 +22,7 @@ export async function CategoriesSection() {
           {CATEGORIES.map((category) => (
             <div key={category.key} className="flex flex-col items-start gap-12 rounded-3xl bg-white p-10">
               <Image src={category.icon} alt="" width={80} height={80} />
-              <SectionHeading level={3}>{t(category.key)}</SectionHeading>
+              <SectionHeading level={3}>{t.rich(category.key, { br: () => <br /> })}</SectionHeading>
             </div>
           ))}
         </div>

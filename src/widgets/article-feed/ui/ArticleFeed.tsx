@@ -9,7 +9,15 @@ import { ArticleModal } from './ArticleModal'
 
 const DEFAULT_PAGE_SIZE = 6
 
-export function ArticleFeed({ items, pageSize = DEFAULT_PAGE_SIZE }: { items: Article[]; pageSize?: number }) {
+export function ArticleFeed({
+  items,
+  pageSize = DEFAULT_PAGE_SIZE,
+  columns = 3,
+}: {
+  items: Article[]
+  pageSize?: number
+  columns?: 3 | 4
+}) {
   const [openId, setOpenId] = useState<string | null>(null)
   const [page, setPage] = useState(1)
   const openArticle = items.find((item) => item.id === openId)
@@ -21,7 +29,7 @@ export function ArticleFeed({ items, pageSize = DEFAULT_PAGE_SIZE }: { items: Ar
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className={cn('grid grid-cols-1 gap-6 sm:grid-cols-2', columns === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3')}>
         {pages.map((pageItems, index) => (
           <div key={index} className={index + 1 === page ? 'contents' : 'hidden'}>
             {pageItems.map((article) => (
@@ -36,7 +44,7 @@ export function ArticleFeed({ items, pageSize = DEFAULT_PAGE_SIZE }: { items: Ar
         ))}
       </div>
 
-      {totalPages > 1 && (
+      {items.length > 0 && (
         <nav aria-label="페이지네이션" className="flex items-center justify-center gap-4">
           <button
             type="button"

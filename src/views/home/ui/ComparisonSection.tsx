@@ -11,33 +11,46 @@ export async function ComparisonSection() {
       <div className="mx-auto flex max-w-[1360px] flex-col gap-10">
         <div className="flex flex-col gap-6">
           <SectionHeading level={2}>{t('title')}</SectionHeading>
-          <p className="text-b1 text-text-secondary">{t('description')}</p>
+          <p className="text-b1 text-text-secondary">{t.rich('description', { br: () => <br /> })}</p>
         </div>
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[720px] border-separate border-spacing-4 text-left">
-            <thead>
-              <tr>
-                <th className="w-[180px] px-2 text-b2 font-semibold text-text-secondary">&nbsp;</th>
-                <th className="px-2 text-b2 font-semibold text-text-secondary">{t('columnManual')}</th>
-                <th className="px-2 text-b1 font-semibold text-text-primary">{t('columnAdobaro')}</th>
-              </tr>
-            </thead>
-            <tbody>
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
+            <p className="w-[180px] shrink-0 text-b2 font-semibold text-text-secondary">{t('columnManual')}</p>
+            <div className="flex flex-1 flex-col gap-6 overflow-x-auto sm:grid sm:grid-cols-2 lg:flex lg:flex-row">
               {ROW_KEYS.map((key) => (
-                <tr key={key}>
-                  <th scope="row" className="w-[180px] px-2 text-b2 font-semibold text-text-secondary">
-                    {t(`rows.${key}.label`)}
-                  </th>
-                  <td className="rounded-3xl bg-[#f7f8fb] p-6 align-top text-b2 text-text-secondary">
-                    {t(`rows.${key}.manual`)}
-                  </td>
-                  <td className="rounded-3xl bg-text-primary p-6 align-top text-b2 font-semibold text-white">
-                    {t(`rows.${key}.adobaro`)}
-                  </td>
-                </tr>
+                <div key={key} className="min-w-[265px] flex-1 rounded-3xl bg-[#f7f8fb] p-6">
+                  <p className="text-h3 text-text-primary">{t(`rows.${key}.manualLabel`)}</p>
+                  <p className="mt-[10px] text-b2 text-text-secondary">
+                    {t.rich(`rows.${key}.manualValue`, { br: () => <br /> })}
+                  </p>
+                </div>
               ))}
-            </tbody>
-          </table>
+            </div>
+          </div>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
+            <p className="w-[180px] shrink-0 text-b3 font-semibold text-text-primary">
+              {t.rich('columnAdobaro', {
+                br: () => <br />,
+                accent: (chunks) => <span className="text-brand">{chunks}</span>,
+              })}
+            </p>
+            <div className="flex flex-1 flex-col gap-6 overflow-x-auto sm:grid sm:grid-cols-2 lg:flex lg:flex-row">
+              {ROW_KEYS.map((key) => {
+                const prefix = t(`rows.${key}.adobaroPrefix`)
+                return (
+                  <div key={key} className="min-w-[265px] flex-1 rounded-3xl bg-text-primary p-6">
+                    <p className="text-h3 text-white">{t(`rows.${key}.adobaroLabel`)}</p>
+                    <p className="mt-[10px] text-b2 text-white/80">
+                      {prefix}
+                      <span className="text-b3 font-semibold text-brand-tertiary">
+                        {t(`rows.${key}.adobaroHighlight`)}
+                      </span>
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ export function PricingTable({ title, plans }: { title: ReactNode; plans: Plan[]
   return (
     <div className="flex flex-col items-center gap-10">
       <SectionHeading level={3}>{title}</SectionHeading>
-      <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-3">
+      <div className="grid w-full grid-cols-1 gap-6 lg:grid-cols-3">
         {plans.map((plan) => (
           <PricingCard key={plan.id} plan={plan} />
         ))}

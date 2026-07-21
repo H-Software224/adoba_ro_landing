@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { ArticleFeed } from '@/widgets/article-feed'
 import { JsonLd } from '@/shared/seo/JsonLd'
@@ -9,7 +9,8 @@ import { getNewsArticles } from '../model/articles'
 
 export async function ListSection() {
   const t = await getTranslations('news')
-  const articles = getNewsArticles(t)
+  const locale = await getLocale()
+  const articles = getNewsArticles(t, locale)
 
   const listSchema = itemListSchema(
     articles.map((article) => ({

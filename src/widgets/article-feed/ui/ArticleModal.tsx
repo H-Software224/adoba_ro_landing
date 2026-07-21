@@ -36,16 +36,6 @@ export function ArticleModal({ article, onClose }: { article: Article; onClose: 
               {article.modalTitle ?? article.title}
             </SectionHeading>
             <p className="whitespace-pre-line text-b2 text-text-secondary">{article.modalDescription}</p>
-            {article.externalUrl && (
-              <a
-                href={article.externalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-fit items-center justify-center rounded-full bg-text-primary px-8 py-4 text-b3 font-semibold text-white transition-colors hover:bg-text-primary/90"
-              >
-                Instagram에서 보기
-              </a>
-            )}
           </div>
         </div>
       </div>

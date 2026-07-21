@@ -35,9 +35,17 @@ export function ArticleCard({ article, href, onClick }: { article: Article; href
         {expandButton}
       </div>
       <figcaption>
-        <SectionHeading level={3} size="b2">
-          {article.title}
-        </SectionHeading>
+        {href ? (
+          <Link href={href} className="transition-colors hover:text-text-secondary hover:underline">
+            <SectionHeading level={3} size="b2">
+              {article.title}
+            </SectionHeading>
+          </Link>
+        ) : (
+          <SectionHeading level={3} size="b2">
+            {article.title}
+          </SectionHeading>
+        )}
       </figcaption>
     </figure>
   )

@@ -7,13 +7,15 @@ type Translator = Awaited<ReturnType<typeof getTranslations<'news'>>>
  * Static mock data — no CMS yet. Swap for a CMS_API_KEY fetch later; the
  * Article shape and this function's signature can stay the same.
  */
-export function getNewsArticles(t: Translator): Article[] {
+export function getNewsArticles(t: Translator, locale: string): Article[] {
+  const image = (base: string) => (locale === 'en' ? `/images/news/${base}-en.png` : `/images/news/${base}.png`)
+
   return [
     {
       id: 'iqiyi-expand',
       type: 'news',
       title: t('events.iqiyiExpand.title'),
-      image: '/images/news/event-iqiyi-expand.png',
+      image: image('event-iqiyi-expand'),
       startDate: '2026-07-06',
       endDate: '2026-07-31',
       modalTitle: t('events.iqiyiExpand.modalTitle'),
@@ -28,7 +30,7 @@ export function getNewsArticles(t: Translator): Article[] {
       id: 'douyin-expand',
       type: 'news',
       title: t('events.douyinExpand.title'),
-      image: '/images/news/event-douyin-expand.png',
+      image: image('event-douyin-expand'),
       startDate: '2026-06-22',
       endDate: '2026-07-31',
       modalTitle: t('events.douyinExpand.modalTitle'),
@@ -43,7 +45,7 @@ export function getNewsArticles(t: Translator): Article[] {
       id: 'rp-reward',
       type: 'news',
       title: t('events.rpReward.title'),
-      image: '/images/news/event-rp-reward.png',
+      image: image('event-rp-reward'),
       startDate: '2026-06-22',
       endDate: '2026-07-12',
       modalTitle: t('events.rpReward.modalTitle'),
@@ -56,7 +58,7 @@ export function getNewsArticles(t: Translator): Article[] {
       id: 'new-platform-douyin',
       type: 'news',
       title: t('events.newPlatformDouyin.title'),
-      image: '/images/news/event-new-platform-douyin.png',
+      image: image('event-new-platform-douyin'),
       modalTitle: t('events.newPlatformDouyin.modalTitle'),
       modalDescription: t('events.newPlatformDouyin.modalDescription'),
       externalUrl: 'https://www.instagram.com/p/DZcF7RUmWlq/',
@@ -65,7 +67,7 @@ export function getNewsArticles(t: Translator): Article[] {
       id: 'new-platform-iqiyi',
       type: 'news',
       title: t('events.newPlatformIqiyi.title'),
-      image: '/images/news/event-new-platform-iqiyi.png',
+      image: image('event-new-platform-iqiyi'),
       modalTitle: t('events.newPlatformIqiyi.modalTitle'),
       modalDescription: t('events.newPlatformIqiyi.modalDescription'),
       externalUrl: 'https://www.instagram.com/p/DWGPluTkR1y/',
@@ -74,7 +76,7 @@ export function getNewsArticles(t: Translator): Article[] {
       id: 'launch',
       type: 'news',
       title: t('events.launch.title'),
-      image: '/images/news/event-launch.png',
+      image: image('event-launch'),
       modalTitle: t('events.launch.modalTitle'),
       modalDescription: t('events.launch.modalDescription'),
       externalUrl: 'https://www.instagram.com/p/DVanmuIEerF/',

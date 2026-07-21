@@ -10,7 +10,11 @@ export function PricingCard({ plan }: { plan: Plan }) {
           <span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-[#f7f8f9] p-4">
             <Image src={plan.icon} alt="" width={32} height={32} />
           </span>
-          {plan.type === 'rp-package' && <SectionHeading level={4}>{plan.name}</SectionHeading>}
+          {plan.type === 'rp-package' && (
+            <SectionHeading level={4} className="min-w-0 xl:whitespace-nowrap">
+              {plan.name}
+            </SectionHeading>
+          )}
         </div>
         <div className="flex flex-col gap-4">
           {plan.type === 'subscription' && <SectionHeading level={4}>{plan.name}</SectionHeading>}

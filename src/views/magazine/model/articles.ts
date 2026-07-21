@@ -3,7 +3,19 @@ import type { getTranslations } from 'next-intl/server'
 
 type Translator = Awaited<ReturnType<typeof getTranslations<'magazine'>>>
 
-export const MAGAZINE_ARTICLE_IDS = ['brand-visual', 'view-count', 'k-creator', 'live-vod'] as const
+export const MAGAZINE_ARTICLE_IDS = [
+  'brand-visual',
+  'view-count',
+  'k-creator',
+  'live-vod',
+  'subtitles',
+  'view-drop',
+  'subs-vs-views',
+  'china-platforms',
+  'keep-korean-channel',
+  'multi-language-channel',
+  'no-talking-format',
+] as const
 
 /**
  * Static mock data — no CMS yet. Swap for a CMS_API_KEY fetch later; the
@@ -17,6 +29,7 @@ export function getMagazineArticles(t: Translator): Article[] {
       id: 'brand-visual',
       type: 'insight',
       title: t('articles.brandVisual.title'),
+      image: '/images/magazine/article-brand-visual-thumb.png',
       externalUrl: 'https://blog.naver.com/hello_adoba/224340153770',
       sourceImage:
         'https://blogthumb.pstatic.net/MjAyNjA3MDhfNTgg/MDAxNzgzNDc3NzE3MTcz.agXOm53ox03ndeNZMht7H5CwpmCqzOooZEGSCa-agQAg.iX18oRu1XsR2K9xeB0wzpxl6wvso8M_AJpqJBCM4UIcg.PNG/1280X1280.PNG?type=w2',
@@ -30,7 +43,7 @@ export function getMagazineArticles(t: Translator): Article[] {
       ],
       fullBody: {
         ...(t.raw('articles.brandVisual.fullBody') as ArticleFullBody),
-        bodyImage: '/images/magazine/article-brand-visual-comparison.png',
+        bodyImage: { src: '/images/magazine/article-brand-visual-comparison.png', aspectRatio: '720/199' },
       },
     },
     {
@@ -78,6 +91,125 @@ export function getMagazineArticles(t: Translator): Article[] {
       excerpt: t('articles.liveVod.excerpt'),
       authorName,
       fullBody: t.raw('articles.liveVod.fullBody') as ArticleFullBody,
+    },
+    {
+      id: 'subtitles',
+      type: 'insight',
+      title: t('articles.subtitles.title'),
+      image: '/images/magazine/article-subtitles.png',
+      datePublished: '2026-07-21',
+      detailHref: '/magazine/subtitles',
+      excerpt: t('articles.subtitles.excerpt'),
+      authorName,
+      faq: [
+        { question: t('articles.subtitles.faq.q1.question'), answer: t('articles.subtitles.faq.q1.answer') },
+        { question: t('articles.subtitles.faq.q2.question'), answer: t('articles.subtitles.faq.q2.answer') },
+        { question: t('articles.subtitles.faq.q3.question'), answer: t('articles.subtitles.faq.q3.answer') },
+        { question: t('articles.subtitles.faq.q4.question'), answer: t('articles.subtitles.faq.q4.answer') },
+      ],
+      fullBody: t.raw('articles.subtitles.fullBody') as ArticleFullBody,
+    },
+    {
+      id: 'view-drop',
+      type: 'insight',
+      title: t('articles.viewDrop.title'),
+      image: '/images/magazine/article-view-drop.png',
+      datePublished: '2026-07-21',
+      detailHref: '/magazine/view-drop',
+      excerpt: t('articles.viewDrop.excerpt'),
+      authorName,
+      faq: [
+        { question: t('articles.viewDrop.faq.q1.question'), answer: t('articles.viewDrop.faq.q1.answer') },
+        { question: t('articles.viewDrop.faq.q2.question'), answer: t('articles.viewDrop.faq.q2.answer') },
+        { question: t('articles.viewDrop.faq.q3.question'), answer: t('articles.viewDrop.faq.q3.answer') },
+      ],
+      fullBody: t.raw('articles.viewDrop.fullBody') as ArticleFullBody,
+    },
+    {
+      id: 'subs-vs-views',
+      type: 'insight',
+      title: t('articles.subsVsViews.title'),
+      image: '/images/magazine/article-subs-vs-views.png',
+      datePublished: '2026-07-21',
+      detailHref: '/magazine/subs-vs-views',
+      excerpt: t('articles.subsVsViews.excerpt'),
+      authorName,
+      faq: [
+        { question: t('articles.subsVsViews.faq.q1.question'), answer: t('articles.subsVsViews.faq.q1.answer') },
+        { question: t('articles.subsVsViews.faq.q2.question'), answer: t('articles.subsVsViews.faq.q2.answer') },
+        { question: t('articles.subsVsViews.faq.q3.question'), answer: t('articles.subsVsViews.faq.q3.answer') },
+        { question: t('articles.subsVsViews.faq.q4.question'), answer: t('articles.subsVsViews.faq.q4.answer') },
+      ],
+      fullBody: t.raw('articles.subsVsViews.fullBody') as ArticleFullBody,
+    },
+    {
+      id: 'china-platforms',
+      type: 'insight',
+      title: t('articles.chinaPlatforms.title'),
+      image: '/images/magazine/article-china-platforms.png',
+      datePublished: '2026-07-21',
+      detailHref: '/magazine/china-platforms',
+      excerpt: t('articles.chinaPlatforms.excerpt'),
+      authorName,
+      faq: [
+        { question: t('articles.chinaPlatforms.faq.q1.question'), answer: t('articles.chinaPlatforms.faq.q1.answer') },
+        { question: t('articles.chinaPlatforms.faq.q2.question'), answer: t('articles.chinaPlatforms.faq.q2.answer') },
+        { question: t('articles.chinaPlatforms.faq.q3.question'), answer: t('articles.chinaPlatforms.faq.q3.answer') },
+        { question: t('articles.chinaPlatforms.faq.q4.question'), answer: t('articles.chinaPlatforms.faq.q4.answer') },
+      ],
+      fullBody: t.raw('articles.chinaPlatforms.fullBody') as ArticleFullBody,
+    },
+    {
+      id: 'keep-korean-channel',
+      type: 'insight',
+      title: t('articles.keepKoreanChannel.title'),
+      image: '/images/magazine/article-keep-korean-channel.png',
+      datePublished: '2026-07-21',
+      detailHref: '/magazine/keep-korean-channel',
+      excerpt: t('articles.keepKoreanChannel.excerpt'),
+      authorName,
+      faq: [
+        { question: t('articles.keepKoreanChannel.faq.q1.question'), answer: t('articles.keepKoreanChannel.faq.q1.answer') },
+        { question: t('articles.keepKoreanChannel.faq.q2.question'), answer: t('articles.keepKoreanChannel.faq.q2.answer') },
+        { question: t('articles.keepKoreanChannel.faq.q3.question'), answer: t('articles.keepKoreanChannel.faq.q3.answer') },
+        { question: t('articles.keepKoreanChannel.faq.q4.question'), answer: t('articles.keepKoreanChannel.faq.q4.answer') },
+        { question: t('articles.keepKoreanChannel.faq.q5.question'), answer: t('articles.keepKoreanChannel.faq.q5.answer') },
+      ],
+      fullBody: t.raw('articles.keepKoreanChannel.fullBody') as ArticleFullBody,
+    },
+    {
+      id: 'multi-language-channel',
+      type: 'insight',
+      title: t('articles.multiLanguageChannel.title'),
+      image: '/images/magazine/article-multi-language-channel.png',
+      datePublished: '2026-07-21',
+      detailHref: '/magazine/multi-language-channel',
+      excerpt: t('articles.multiLanguageChannel.excerpt'),
+      authorName,
+      faq: [
+        { question: t('articles.multiLanguageChannel.faq.q1.question'), answer: t('articles.multiLanguageChannel.faq.q1.answer') },
+        { question: t('articles.multiLanguageChannel.faq.q2.question'), answer: t('articles.multiLanguageChannel.faq.q2.answer') },
+        { question: t('articles.multiLanguageChannel.faq.q3.question'), answer: t('articles.multiLanguageChannel.faq.q3.answer') },
+        { question: t('articles.multiLanguageChannel.faq.q4.question'), answer: t('articles.multiLanguageChannel.faq.q4.answer') },
+      ],
+      fullBody: t.raw('articles.multiLanguageChannel.fullBody') as ArticleFullBody,
+    },
+    {
+      id: 'no-talking-format',
+      type: 'insight',
+      title: t('articles.noTalkingFormat.title'),
+      image: '/images/magazine/article-no-talking-format.png',
+      datePublished: '2026-07-21',
+      detailHref: '/magazine/no-talking-format',
+      excerpt: t('articles.noTalkingFormat.excerpt'),
+      authorName,
+      faq: [
+        { question: t('articles.noTalkingFormat.faq.q1.question'), answer: t('articles.noTalkingFormat.faq.q1.answer') },
+        { question: t('articles.noTalkingFormat.faq.q2.question'), answer: t('articles.noTalkingFormat.faq.q2.answer') },
+        { question: t('articles.noTalkingFormat.faq.q3.question'), answer: t('articles.noTalkingFormat.faq.q3.answer') },
+        { question: t('articles.noTalkingFormat.faq.q4.question'), answer: t('articles.noTalkingFormat.faq.q4.answer') },
+      ],
+      fullBody: t.raw('articles.noTalkingFormat.fullBody') as ArticleFullBody,
     },
   ]
 }

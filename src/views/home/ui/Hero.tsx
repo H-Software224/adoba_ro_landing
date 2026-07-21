@@ -15,7 +15,7 @@ export async function Hero() {
 
   const schema = serviceSchema({
     name: 'adobaRo',
-    description: t('description'),
+    description: t.markup('description', { br: () => ' ', strong: (chunks) => chunks }),
     areaServed: AREA_SERVED,
     offers: [
       { name: 'Lite', url: `${SITE_URL}/pricing#lite` },
@@ -39,7 +39,12 @@ export async function Hero() {
         <div className="relative mx-auto flex max-w-[763px] flex-col items-center gap-12 px-6 text-center">
           <div className="flex flex-col items-center gap-6">
             <SectionHeading level={1}>{t('title')}</SectionHeading>
-            <p className="text-b2 text-text-secondary">{t('description')}</p>
+            <p className="text-b2 text-text-secondary">
+              {t.rich('description', {
+                br: () => <br />,
+                strong: (chunks) => <strong className="font-semibold text-text-primary">{chunks}</strong>,
+              })}
+            </p>
           </div>
           <div className="flex flex-col items-center">
             <StartFreeButton className="h-[60px] w-[240px] rounded-xl text-b3">{tCommon('startFree')}</StartFreeButton>

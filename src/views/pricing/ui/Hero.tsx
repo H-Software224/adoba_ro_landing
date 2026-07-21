@@ -22,7 +22,7 @@ export async function Hero() {
         <div className="relative mx-auto flex max-w-[960px] flex-col items-center gap-10 px-6 text-center">
           <div className="flex flex-col items-center gap-6">
             <SectionHeading level={1}>{t('title')}</SectionHeading>
-            <p className="text-b2 text-text-secondary">{t('description')}</p>
+            <p className="text-b2 text-text-secondary">{t.rich('description', { br: () => <br /> })}</p>
           </div>
           <div className="flex flex-col items-center">
             <StartFreeButton className="h-[60px] w-[240px] rounded-xl text-b3">{tCommon('startFree')}</StartFreeButton>

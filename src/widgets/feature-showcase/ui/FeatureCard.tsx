@@ -8,7 +8,7 @@ export function FeatureCard({ feature }: { feature: ProductFeature }) {
       <Image src={feature.icon} alt="" width={120} height={120} className="shrink-0" />
       <div className="flex flex-col gap-4">
         <SectionHeading level={3}>{feature.title}</SectionHeading>
-        <p className="text-b1 text-text-secondary">{feature.description}</p>
+        <p className="whitespace-pre-line text-b1 text-text-secondary">{feature.description}</p>
       </div>
     </div>
   )

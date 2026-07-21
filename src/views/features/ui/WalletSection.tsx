@@ -10,7 +10,7 @@ export async function WalletSection() {
       <div className="mx-auto flex max-w-[1360px] flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex max-w-[668px] flex-col gap-6">
           <SectionHeading level={2}>{t('title')}</SectionHeading>
-          <p className="text-b1 text-text-secondary">{t('description')}</p>
+          <p className="text-b1 text-text-secondary">{t.rich('description', { br: () => <br /> })}</p>
         </div>
         <Image
           src="/images/features/wallet-mockup.png"

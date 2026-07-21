@@ -3,6 +3,53 @@ import type { Article } from '@/entities/article'
 import { getTranslations } from 'next-intl/server'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
+/** Renders `**text**` spans as bold within an otherwise plain string. */
+function BoldText({ text }: { text: string }) {
+  const parts = text.split(/(\*\*.+?\*\*)/g)
+  return (
+    <>
+      {parts.map((part, index) =>
+        part.startsWith('**') && part.endsWith('**') ? (
+          <strong key={index} className="font-semibold text-text-primary">
+            {part.slice(2, -2)}
+          </strong>
+        ) : (
+          <span key={index}>{part}</span>
+        ),
+      )}
+    </>
+  )
+}
+
+function DataTable({ table }: { table: { headers: string[]; rows: string[][] } }) {
+  return (
+    <div className="overflow-x-auto rounded-2xl border border-[#e2e8f0]">
+      <table className="w-full min-w-[560px] border-collapse text-left text-b3">
+        <thead>
+          <tr className="bg-[#f7f8fb]">
+            {table.headers.map((header) => (
+              <th key={header} className="border-b border-[#e2e8f0] px-4 py-3 font-semibold text-text-primary">
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {table.rows.map((row, rowIndex) => (
+            <tr key={rowIndex} className="border-b border-[#e2e8f0] last:border-0">
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex} className="px-4 py-3 align-top text-text-secondary">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 export async function ArticleBody({ article }: { article: Article }) {
   const t = await getTranslations('magazine.article')
   const { fullBody } = article
@@ -29,12 +76,25 @@ export async function ArticleBody({ article }: { article: Article }) {
 
       {fullBody ? (
         <>
-          {fullBody.summaryTitle && fullBody.summaryText && (
+          {fullBody.summaryTitle && (fullBody.summaryText || fullBody.summaryItems) && (
             <div className="flex flex-col gap-3 rounded-3xl bg-[#f7f8fb] p-8">
               <SectionHeading level={2} size="h3">
                 {fullBody.summaryTitle}
               </SectionHeading>
-              <p className="text-b1 text-text-secondary">{fullBody.summaryText}</p>
+              {fullBody.summaryText && (
+                <p className="text-b1 text-text-secondary">
+                  <BoldText text={fullBody.summaryText} />
+                </p>
+              )}
+              {fullBody.summaryItems && (
+                <ul className="list-disc space-y-2 pl-5 text-b1 text-text-secondary marker:text-text-tertiary">
+                  {fullBody.summaryItems.map((item) => (
+                    <li key={item}>
+                      <BoldText text={item} />
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
 
@@ -43,27 +103,46 @@ export async function ArticleBody({ article }: { article: Article }) {
           )}
 
           {fullBody.bodyImage && (
-            <div className="relative aspect-[720/199] w-full overflow-hidden rounded-3xl">
-              <Image src={fullBody.bodyImage} alt="" fill className="object-cover" />
+            <div
+              className="relative w-full overflow-hidden rounded-3xl"
+              style={{ aspectRatio: fullBody.bodyImage.aspectRatio }}
+            >
+              <Image src={fullBody.bodyImage.src} alt="" fill className="object-cover" />
             </div>
           )}
 
-          <p className="text-b1 text-text-secondary">{fullBody.intro}</p>
+          {fullBody.intro && (
+            <p className="text-b1 text-text-secondary">
+              <BoldText text={fullBody.intro} />
+            </p>
+          )}
 
           {fullBody.sections.map((section) => (
             <div key={section.title} className="flex flex-col gap-4">
               <SectionHeading level={2} size="h3">
                 {section.title}
               </SectionHeading>
-              {section.intro && <p className="text-b1 text-text-secondary">{section.intro}</p>}
+              {section.intro && (
+                <p className="text-b1 text-text-secondary">
+                  <BoldText text={section.intro} />
+                </p>
+              )}
               {section.subsections?.map((subsection) => (
                 <div key={subsection.title} className="flex flex-col gap-2">
                   <SectionHeading level={3} size="b1">
                     {subsection.title}
                   </SectionHeading>
-                  <p className="text-b1 text-text-secondary">{subsection.text}</p>
+                  <p className="text-b1 text-text-secondary">
+                    <BoldText text={subsection.text} />
+                  </p>
                 </div>
               ))}
+              {section.table && <DataTable table={section.table} />}
+              {section.image && (
+                <div className="relative w-full overflow-hidden rounded-3xl" style={{ aspectRatio: section.image.aspectRatio }}>
+                  <Image src={section.image.src} alt="" fill className="object-cover" />
+                </div>
+              )}
             </div>
           ))}
 
@@ -74,7 +153,7 @@ export async function ArticleBody({ article }: { article: Article }) {
               </SectionHeading>
               {fullBody.conclusion.paragraphs.map((paragraph) => (
                 <p key={paragraph} className="text-b1 text-text-secondary">
-                  {paragraph}
+                  <BoldText text={paragraph} />
                 </p>
               ))}
             </div>
@@ -82,17 +161,6 @@ export async function ArticleBody({ article }: { article: Article }) {
         </>
       ) : (
         article.excerpt && <p className="text-b1 text-text-secondary">{article.excerpt}</p>
-      )}
-
-      {article.externalUrl && (
-        <a
-          href={article.externalUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex w-fit items-center justify-center rounded-full bg-text-primary px-8 py-4 text-b3 font-semibold text-white transition-colors hover:bg-text-primary/90"
-        >
-          {t('readMore')}
-        </a>
       )}
     </article>
   )
