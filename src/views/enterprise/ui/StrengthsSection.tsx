@@ -8,7 +8,7 @@ export async function StrengthsSection() {
 
   return (
     <section className="relative z-10 -mt-[40dvh] rounded-t-[40px] bg-enterprise-bg px-6 py-20 lg:px-10 lg:py-32">
-      <div className="mx-auto grid max-w-[1360px] gap-16 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-[1360px] gap-16 xl:grid-cols-[592fr_375fr]">
         <div className="flex flex-col gap-6">
           <SectionHeading level={2} className="whitespace-pre-line text-white">
             {t.rich('title', { accent: (chunks) => <span className="text-enterprise-accent">{chunks}</span> })}

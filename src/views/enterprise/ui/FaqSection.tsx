@@ -29,13 +29,19 @@ export async function FaqSection() {
             <details key={item.key} name="enterprise-faq" className="group border-b border-white/20 py-6">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-h3 font-semibold text-white marker:content-none">
                 {item.question}
-                <span className="relative block size-8 shrink-0">
-                  <Image src="/images/enterprise/icon-plus.png" alt="" fill sizes="32px" className="group-open:hidden" />
+                <span className="relative block size-6 shrink-0 sm:size-7 md:size-8">
+                  <Image
+                    src="/images/enterprise/icon-plus.png"
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 32px, (min-width: 640px) 28px, 24px"
+                    className="group-open:hidden"
+                  />
                   <Image
                     src="/images/enterprise/icon-minus.svg"
                     alt=""
                     fill
-                    sizes="32px"
+                    sizes="(min-width: 768px) 32px, (min-width: 640px) 28px, 24px"
                     className="hidden group-open:block"
                   />
                 </span>
@@ -53,7 +59,14 @@ export async function FaqSection() {
                         className="inline-flex w-fit items-center gap-0.5 text-b3 text-enterprise-accent transition-colors hover:text-enterprise-accent/80"
                       >
                         {link.label}
-                        <Image src="/images/enterprise/icon-arrow-right.svg" alt="" width={24} height={24} />
+                        <Image
+                          src="/images/enterprise/icon-arrow-right.svg"
+                          alt=""
+                          width={24}
+                          height={24}
+                          sizes="(min-width: 768px) 24px, 20px"
+                          className="size-5 md:size-6"
+                        />
                       </a>
                     ))}
                   </div>

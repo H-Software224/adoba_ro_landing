@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import { softBreak } from '@/shared/i18n/rich'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { howToSchema } from '@/shared/seo/schemas/how-to'
@@ -21,9 +22,9 @@ export async function ProcessSection() {
       <div className="mx-auto flex max-w-[1360px] flex-col gap-16 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex max-w-[668px] flex-col gap-6">
           <SectionHeading level={2} size="h2-strong">
-            {t.rich('title', { br: () => <br /> })}
+            {t.rich('title', { br: softBreak })}
           </SectionHeading>
-          <p className="text-b1 text-text-secondary">{t.rich('description', { br: () => <br /> })}</p>
+          <p className="text-b1 text-text-secondary">{t.rich('description', { br: softBreak })}</p>
         </div>
         <ol className="flex flex-col items-center">
           {steps.map((step, index) => (

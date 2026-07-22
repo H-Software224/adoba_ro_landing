@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
-import { Button } from '@/shared/ui/Button'
+import { StartFreeButton } from '@/features/start-free'
 
 export async function Hero() {
   const t = await getTranslations('news.hero')
@@ -22,15 +22,7 @@ export async function Hero() {
             <SectionHeading level={1}>{t('title')}</SectionHeading>
             <p className="text-b2 text-text-secondary">{t('description')}</p>
           </div>
-          <Button
-            as="a"
-            href="https://adobaro.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="h-[60px] w-[240px] rounded-xl text-b3"
-          >
-            {t('cta')}
-          </Button>
+          <StartFreeButton className="h-[60px] w-[240px] rounded-xl text-b3">{t('cta')}</StartFreeButton>
         </div>
       </section>
     </div>

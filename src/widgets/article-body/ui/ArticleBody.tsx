@@ -24,11 +24,14 @@ function BoldText({ text }: { text: string }) {
 function DataTable({ table }: { table: { headers: string[]; rows: string[][] } }) {
   return (
     <div className="relative overflow-x-auto rounded-2xl border border-[#e2e8f0]">
-      <table className="w-full min-w-[560px] border-collapse text-left text-b3">
+      <table className="w-full border-collapse text-left text-b3">
         <thead>
           <tr className="bg-[#f7f8fb]">
             {table.headers.map((header) => (
-              <th key={header} className="border-b border-[#e2e8f0] px-4 py-3 font-semibold text-text-primary">
+              <th
+                key={header}
+                className="border-b border-[#e2e8f0] px-2 py-3 font-semibold text-text-primary sm:px-4"
+              >
                 {header}
               </th>
             ))}
@@ -38,7 +41,7 @@ function DataTable({ table }: { table: { headers: string[]; rows: string[][] } }
           {table.rows.map((row, rowIndex) => (
             <tr key={rowIndex} className="border-b border-[#e2e8f0] last:border-0">
               {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className="px-4 py-3 align-top text-text-secondary">
+                <td key={cellIndex} className="px-2 py-3 align-top text-text-secondary sm:px-4">
                   {cell}
                 </td>
               ))}

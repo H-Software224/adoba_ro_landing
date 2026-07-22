@@ -18,16 +18,37 @@ export async function ContactSection() {
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
-              <Image src="/images/enterprise/icon-telephone.png" alt="" width={24} height={24} />
+              <Image
+                src="/images/enterprise/icon-telephone.png"
+                alt=""
+                width={24}
+                height={24}
+                sizes="(min-width: 768px) 24px, 20px"
+                className="size-5 md:size-6"
+              />
               <p className="text-b3 text-white">{t('info.phone')}</p>
             </div>
             <div className="flex items-center gap-2">
-              <Image src="/images/enterprise/icon-mail.png" alt="" width={24} height={24} />
+              <Image
+                src="/images/enterprise/icon-mail.png"
+                alt=""
+                width={24}
+                height={24}
+                sizes="(min-width: 768px) 24px, 20px"
+                className="size-5 md:size-6"
+              />
               <p className="text-b3 text-white">{t('info.email')}</p>
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2">
-                <Image src="/images/enterprise/icon-building.png" alt="" width={24} height={24} />
+                <Image
+                  src="/images/enterprise/icon-building.png"
+                  alt=""
+                  width={24}
+                  height={24}
+                  sizes="(min-width: 768px) 24px, 20px"
+                  className="size-5 md:size-6"
+                />
                 <p className="text-b3 text-white">{t('info.hqAddress')}</p>
               </div>
               <p className="pl-8 text-b3 text-white">{t('info.labAddress')}</p>

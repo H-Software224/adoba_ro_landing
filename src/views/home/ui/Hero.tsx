@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import { softBreak } from '@/shared/i18n/rich'
 import Image from 'next/image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { StartFreeButton } from '@/features/start-free'
@@ -41,7 +42,7 @@ export async function Hero() {
             <SectionHeading level={1}>{t('title')}</SectionHeading>
             <p className="text-b2 text-text-secondary">
               {t.rich('description', {
-                br: () => <br />,
+                br: softBreak,
                 strong: (chunks) => <strong className="font-semibold text-text-primary">{chunks}</strong>,
               })}
             </p>

@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import { softBreak } from '@/shared/i18n/rich'
 import Image from 'next/image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { StartFreeButton } from '@/features/start-free'
@@ -22,7 +23,7 @@ export async function Hero() {
         <div className="relative mx-auto flex max-w-[960px] flex-col items-center gap-10 px-6 text-center">
           <div className="flex flex-col items-center gap-6">
             <SectionHeading level={1}>{t('title')}</SectionHeading>
-            <p className="text-b2 text-text-secondary">{t.rich('description', { br: () => <br /> })}</p>
+            <p className="text-b2 text-text-secondary">{t.rich('description', { br: softBreak })}</p>
           </div>
           <div className="flex flex-col items-center">
             <StartFreeButton className="h-[60px] w-[240px] rounded-xl text-b3">{tCommon('startFree')}</StartFreeButton>

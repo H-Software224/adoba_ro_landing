@@ -19,7 +19,14 @@ export async function UsageSection() {
         <div className="grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2">
           {USAGE_ITEMS.map((item) => (
             <div key={item.key} className="flex flex-col gap-6">
-              <Image src={item.icon} alt="" width={80} height={80} />
+              <Image
+                src={item.icon}
+                alt=""
+                width={80}
+                height={80}
+                sizes="(min-width: 768px) 80px, (min-width: 640px) 64px, 48px"
+                className="size-12 sm:size-16 md:size-20"
+              />
               <div className="flex flex-col gap-2">
                 <p className="text-b2 text-text-primary">{t(`${item.key}.label`)}</p>
                 <p className="text-h3 text-text-primary">{t(`${item.key}.value`)}</p>

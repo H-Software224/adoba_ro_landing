@@ -13,8 +13,11 @@ const PILL_GRADIENT = [
   'from-enterprise-indigo-900 to-enterprise-indigo-950',
 ]
 
-// Figma has each step shift 120px right as it rises — a diagonal staircase, not a flat stack
-const PILL_INDENT = ['lg:ml-0', 'lg:ml-[120px]', 'lg:ml-[240px]', 'lg:ml-[360px]']
+// Figma has each step shift 120px right as it rises — a diagonal staircase, not a flat stack.
+// At exactly `lg` (1024px) the full-size staircase (460px pill + up to 360px offset = 820px)
+// leaves almost no room for the title column, so it's scaled down until `xl` (1280px) where
+// the layout has enough width for the Figma-spec size.
+const PILL_INDENT = ['lg:ml-0', 'lg:ml-[40px] xl:ml-[120px]', 'lg:ml-[80px] xl:ml-[240px]', 'lg:ml-[120px] xl:ml-[360px]']
 
 export async function CustomizationSection() {
   const t = await getTranslations('enterprise.customization')
@@ -39,7 +42,7 @@ export async function CustomizationSection() {
             <li
               key={key}
               className={cn(
-                'flex items-center justify-center rounded-full border border-white/10 bg-gradient-to-r px-10 py-6 lg:w-[460px]',
+                'flex items-center justify-center rounded-full border border-white/10 bg-gradient-to-r px-10 py-6 lg:w-[280px] lg:px-6 xl:w-[460px] xl:px-10',
                 PILL_GRADIENT[index],
                 PILL_INDENT[index],
               )}

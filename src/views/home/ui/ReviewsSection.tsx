@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import { softBreak } from '@/shared/i18n/rich'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { reviewSchema } from '@/shared/seo/schemas/review'
@@ -20,14 +21,14 @@ export async function ReviewsSection() {
       <JsonLd data={schemas} />
       <div className="mx-auto flex max-w-[1360px] flex-col gap-16">
         <SectionHeading level={2} className="text-center">
-          {t.rich('title', { br: () => <br /> })}
+          {t.rich('title', { br: softBreak })}
         </SectionHeading>
         <div className="flex flex-col gap-16">
           {REVIEW_KEYS.map((key) => (
             <div key={key} className="flex flex-col gap-5">
               <div className="flex flex-col gap-4">
                 <p className="text-h3 text-text-primary">{t(`items.${key}.quote`)}</p>
-                <p className="text-b2 text-text-secondary">{t.rich(`items.${key}.body`, { br: () => <br /> })}</p>
+                <p className="text-b2 text-text-secondary">{t.rich(`items.${key}.body`, { br: softBreak })}</p>
               </div>
               <SectionHeading level={3} size="b3" className="text-text-tertiary">
                 {t(`items.${key}.author`)}

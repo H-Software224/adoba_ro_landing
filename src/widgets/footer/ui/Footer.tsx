@@ -1,4 +1,5 @@
 import { getLocale, getTranslations } from 'next-intl/server'
+import { softBreak } from '@/shared/i18n/rich'
 import Image from 'next/image'
 import { StartFreeButton } from '@/features/start-free'
 
@@ -25,7 +26,7 @@ export async function Footer() {
     <footer className="rounded-t-[80px] bg-[#111111] px-8 pb-16 pt-20 text-white lg:px-[120px]">
       <Image src="/images/logo/ro-mark-white.png" alt="" width={160} height={40} />
       <p className="mt-6 text-[28px] font-semibold leading-none tracking-[-0.0225em] text-white sm:text-[32px] lg:text-[40px]">
-        {t.rich('home.footer.tagline', { br: () => <br /> })}
+        {t.rich('home.footer.tagline', { br: softBreak })}
       </p>
       <StartFreeButton variant="ghost-light" className="mt-8 h-[60px] w-[240px] rounded-xl text-b3">
         {t('common.startFree')}

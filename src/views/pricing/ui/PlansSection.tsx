@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import { softBreak } from '@/shared/i18n/rich'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { PricingTable } from '@/widgets/pricing-table'
 import { JsonLd } from '@/shared/seo/JsonLd'
@@ -40,7 +41,7 @@ export async function PlansSection() {
     <section className="relative z-10 -mt-[40dvh] rounded-t-[40px] bg-[#e8ebf6] px-6 py-20 lg:px-10">
       <JsonLd data={schemas} />
       <div className="mx-auto flex max-w-[1360px] flex-col gap-24">
-        <SectionHeading level={2}>{t.rich('plans.title', { br: () => <br /> })}</SectionHeading>
+        <SectionHeading level={2}>{t.rich('plans.title', { br: softBreak })}</SectionHeading>
         <PricingTable title={t('plans.subscription.title')} plans={subscriptionPlans} />
         <PricingTable title={t('plans.rpPackage.title')} plans={rpPackages} />
       </div>

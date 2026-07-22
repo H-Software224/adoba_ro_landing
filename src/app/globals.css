@@ -6,4 +6,5 @@
 body {
   color: theme(colors.text.primary);
   font-family: theme(fontFamily.sans);
+  word-break: keep-all;
 }
