@@ -15,9 +15,9 @@ export async function ComparisonSection() {
           <p className="text-b1 text-text-secondary">{t.rich('description', { br: softBreak })}</p>
         </div>
         <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
+          <div className="flex flex-col gap-6 2xl:flex-row 2xl:items-center">
             <p className="w-[180px] shrink-0 text-b2 font-semibold text-text-secondary">{t('columnManual')}</p>
-            <div className="flex flex-1 flex-col gap-6 overflow-x-auto sm:grid sm:grid-cols-2 lg:flex lg:flex-row">
+            <div className="flex flex-1 flex-col gap-6 overflow-x-auto sm:grid sm:grid-cols-2 2xl:flex 2xl:flex-row">
               {ROW_KEYS.map((key) => (
                 <div key={key} className="min-w-[265px] flex-1 rounded-3xl bg-[#f7f8fb] p-6">
                   <p className="text-h3 text-text-primary">{t(`rows.${key}.manualLabel`)}</p>
@@ -28,14 +28,14 @@ export async function ComparisonSection() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
+          <div className="flex flex-col gap-6 2xl:flex-row 2xl:items-center">
             <p className="w-[180px] shrink-0 text-b3 font-semibold text-text-primary">
               {t.rich('columnAdobaro', {
                 br: softBreak,
                 accent: (chunks) => <span className="text-brand">{chunks}</span>,
               })}
             </p>
-            <div className="flex flex-1 flex-col gap-6 overflow-x-auto sm:grid sm:grid-cols-2 lg:flex lg:flex-row">
+            <div className="flex flex-1 flex-col gap-6 overflow-x-auto sm:grid sm:grid-cols-2 2xl:flex 2xl:flex-row">
               {ROW_KEYS.map((key) => {
                 const prefix = t(`rows.${key}.adobaroPrefix`)
                 return (

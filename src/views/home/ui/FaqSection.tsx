@@ -18,7 +18,7 @@ export async function FaqSection() {
   return (
     <section className="bg-[#ebf2fb] px-6 py-20 lg:px-10">
       <JsonLd data={faqPageSchema(items.map(({ question, answer }) => ({ question, answer })))} />
-      <div className="mx-auto flex max-w-[1360px] flex-col gap-10 lg:flex-row lg:gap-[326px]">
+      <div className="mx-auto flex max-w-[1360px] flex-col gap-10 lg:flex-row lg:gap-16 xl:gap-[326px]">
         <SectionHeading level={2} className="lg:w-[287px] lg:shrink-0">
           {t('title')}
         </SectionHeading>

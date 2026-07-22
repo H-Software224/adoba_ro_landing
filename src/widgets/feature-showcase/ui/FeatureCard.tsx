@@ -4,7 +4,7 @@ import { SectionHeading } from '@/shared/ui/SectionHeading'
 
 export function FeatureCard({ feature }: { feature: ProductFeature }) {
   return (
-    <div className="flex w-[280px] shrink-0 snap-start items-center gap-6 rounded-3xl bg-white p-6 sm:w-[400px] sm:gap-8 sm:p-10 lg:w-[560px]">
+    <div className="flex w-[280px] shrink-0 items-center gap-6 rounded-3xl bg-white p-6 sm:w-[400px] sm:gap-8 sm:p-10 lg:w-[560px]">
       <Image
         src={feature.icon}
         alt=""
