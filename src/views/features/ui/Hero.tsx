@@ -10,7 +10,7 @@ export async function Hero() {
 
   return (
     <div className="relative min-h-[140dvh]">
-      <section className="sticky top-[95px] flex h-dvh items-center overflow-hidden bg-white sm:top-[73px] lg:top-[72px]">
+      <section className="sticky top-16 flex h-dvh items-start overflow-hidden bg-white pt-10 sm:pt-14 lg:top-[72px] xl:items-center xl:pt-0">
         <Image
           src="/images/features/hero-background.jpg"
           alt=""

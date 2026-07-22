@@ -18,7 +18,7 @@ export async function Gnb() {
         className="h-auto w-24 shrink-0 sm:w-32"
       />
       <div className="flex shrink-0 items-center gap-2 sm:gap-4">
-        <LocaleSwitcher variant="pill-dark" />
+        <LocaleSwitcher variant="toggle-dark" />
         <Button
           as="a"
           href="#contact"

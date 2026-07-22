@@ -21,7 +21,7 @@ export async function Hero() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative flex h-full flex-col">
           <Gnb />
-          <div className="mx-auto flex max-w-[1360px] flex-1 flex-col items-center justify-center gap-6 px-6 text-center lg:px-10">
+          <div className="mx-auto flex max-w-[1360px] flex-1 flex-col items-center justify-start gap-6 px-6 pt-10 text-center sm:pt-14 lg:px-10 xl:justify-center xl:pt-0">
             <SectionHeading level={1} className="whitespace-pre-line text-white/90">
               {t('title')}
             </SectionHeading>
