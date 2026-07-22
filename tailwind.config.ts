@@ -4,6 +4,12 @@ export default {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+        // Real-device reference viewports (min-width) used for responsive QA —
+        // see checklist.md section 14. Both sit below `sm`(640px).
+        iphone12pro: '390px',
+        s20ultra: '412px',
+      },
       colors: {
         white: '#ffffff',
         text: {
