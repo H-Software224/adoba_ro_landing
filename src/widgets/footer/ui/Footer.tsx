@@ -1,9 +1,25 @@
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { StartFreeButton } from '@/features/start-free'
 
+const SNS_LINKS = {
+  ko: [
+    { name: 'YouTube', icon: '/images/footer/icon-youtube.svg', href: 'https://www.youtube.com/@adoba.official' },
+    { name: 'Instagram', icon: '/images/footer/icon-instagram.svg', href: 'https://www.instagram.com/adoba.rokorea/' },
+    { name: 'Blog', icon: '/images/footer/icon-blog.svg', href: 'https://blog.naver.com/adobaro' },
+  ],
+  en: [
+    { name: 'Instagram', icon: '/images/footer/icon-instagram.svg', href: 'https://www.instagram.com/adoba.ro/' },
+    { name: 'Medium', icon: '/images/footer/icon-medium.svg', href: 'https://medium.com/adoba' },
+    { name: 'X', icon: '/images/footer/icon-x.svg', href: 'https://x.com/officialadobaro' },
+    { name: 'LinkedIn', icon: '/images/footer/icon-linkedin.svg', href: 'https://www.linkedin.com/company/adobacorp' },
+  ],
+} as const
+
 export async function Footer() {
   const t = await getTranslations()
+  const locale = await getLocale()
+  const snsLinks = SNS_LINKS[locale === 'en' ? 'en' : 'ko']
 
   return (
     <footer className="rounded-t-[80px] bg-[#111111] px-8 pb-16 pt-20 text-white lg:px-[120px]">
@@ -14,7 +30,21 @@ export async function Footer() {
       <StartFreeButton variant="ghost-light" className="mt-8 h-[60px] w-[240px] rounded-xl text-b3">
         {t('common.startFree')}
       </StartFreeButton>
-      <div className="mt-24 flex flex-wrap justify-center gap-10 text-center text-b3 text-white/80">
+      <div className="mt-6 flex items-center gap-2">
+        {snsLinks.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.name}
+            className="flex size-8 items-center justify-center"
+          >
+            <Image src={link.icon} alt="" width={24} height={24} />
+          </a>
+        ))}
+      </div>
+      <div className="mt-[60px] flex flex-wrap justify-center gap-10 text-center text-b3 text-white/80">
         <p>{t('footer.companyName')}</p>
         <p>{t('footer.address')}</p>
         <p>{t('footer.telephone')}</p>

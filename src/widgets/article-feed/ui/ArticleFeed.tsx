@@ -13,10 +13,13 @@ export function ArticleFeed({
   items,
   pageSize = DEFAULT_PAGE_SIZE,
   columns = 3,
+  hidePaginationOnSinglePage = false,
 }: {
   items: Article[]
   pageSize?: number
   columns?: 3 | 4
+  /** Hides the pagination nav entirely when everything fits on one page, instead of showing a disabled "1". */
+  hidePaginationOnSinglePage?: boolean
 }) {
   const [openId, setOpenId] = useState<string | null>(null)
   const [page, setPage] = useState(1)
@@ -44,7 +47,7 @@ export function ArticleFeed({
         ))}
       </div>
 
-      {items.length > 0 && (
+      {(hidePaginationOnSinglePage ? totalPages > 1 : items.length > 0) && (
         <nav aria-label="페이지네이션" className="flex items-center justify-center gap-4">
           <button
             type="button"

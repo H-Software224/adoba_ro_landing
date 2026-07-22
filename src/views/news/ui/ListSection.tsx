@@ -38,7 +38,7 @@ export async function ListSection() {
       <JsonLd data={[listSchema, ...eventSchemas]} />
       <div className="mx-auto flex max-w-[1360px] flex-col gap-12">
         <SectionHeading level={2}>{t('list.title')}</SectionHeading>
-        <ArticleFeed items={articles} />
+        <ArticleFeed items={articles} hidePaginationOnSinglePage />
       </div>
     </section>
   )
