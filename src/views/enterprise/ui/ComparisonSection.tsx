@@ -13,7 +13,7 @@ export async function ComparisonSection() {
       <SectionHeading level={2} className="whitespace-pre-line text-center text-white">
         {t('title')}
       </SectionHeading>
-      <div className="mx-auto mt-16 max-w-[1360px] overflow-x-auto">
+      <div className="relative mx-auto mt-16 max-w-[1360px] overflow-x-auto">
         <table className="w-full min-w-[560px] border-collapse text-left">
           <caption className="sr-only">{t('title')}</caption>
           <thead>
@@ -56,6 +56,10 @@ export async function ComparisonSection() {
             ))}
           </tbody>
         </table>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-enterprise-bg-alt to-transparent lg:hidden"
+        />
       </div>
     </section>
   )

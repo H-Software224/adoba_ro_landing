@@ -8,13 +8,14 @@ export async function Hero() {
   const t = await getTranslations('enterprise.hero')
 
   return (
-    <div className="relative min-h-[140vh]">
-      <section className="sticky top-0 h-screen overflow-hidden bg-enterprise-bg">
+    <div className="relative min-h-[140dvh]">
+      <section className="sticky top-0 h-dvh overflow-hidden bg-enterprise-bg">
         <Image
           src="/images/enterprise/hero-background.jpg"
           alt=""
           fill
           priority
+          sizes="100vw"
           className="pointer-events-none object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />

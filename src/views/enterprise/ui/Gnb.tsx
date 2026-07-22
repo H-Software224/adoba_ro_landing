@@ -14,6 +14,7 @@ export async function Gnb() {
         width={128}
         height={32}
         priority
+        sizes="(min-width: 640px) 128px, 96px"
         className="h-auto w-24 shrink-0 sm:w-32"
       />
       <div className="flex shrink-0 items-center gap-2 sm:gap-4">
@@ -22,7 +23,7 @@ export async function Gnb() {
           as="a"
           href="#contact"
           variant="ghost-light"
-          className="!bg-transparent shrink-0 whitespace-nowrap border border-white px-4 py-2 text-[13px] sm:px-6 sm:py-3 sm:text-[16px]"
+          className="!bg-transparent min-h-11 shrink-0 whitespace-nowrap border border-white px-4 py-2 text-[14px] sm:px-6 sm:py-3 sm:text-[16px]"
         >
           {t('contact')}
         </Button>

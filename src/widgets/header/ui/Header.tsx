@@ -25,7 +25,7 @@ export async function Header() {
 
           <div className="flex min-w-0 items-center gap-2 lg:order-3 lg:gap-6">
             <LocaleSwitcher />
-            <StartFreeButton variant="light" className="h-9 shrink px-2.5 py-2 text-[13px] lg:h-10 lg:shrink-0 lg:px-4 lg:py-2.5 lg:text-b3">
+            <StartFreeButton variant="light" className="h-11 shrink px-2.5 py-2 text-[14px] lg:h-10 lg:shrink-0 lg:px-4 lg:py-2.5 lg:text-b3">
               {t('common.startFree')}
             </StartFreeButton>
           </div>

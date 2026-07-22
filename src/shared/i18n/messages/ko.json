@@ -158,7 +158,7 @@
         "operation": { "label": "채널 운영", "manual": "언어권별 수동 운영", "adobaro": "7개 언어권 + 중국 5개 플랫폼<br></br>통합 운영" },
         "localize": { "label": "콘텐츠 로컬라이징", "manual": "번역가·편집자 섭외, 장시간 소요", "adobaro": "AI Global Agent 자동 처리,<br></br>1-2일 내 완료" },
         "collab": { "label": "광고·협업 매칭", "manual": "개별 컨택 및 제안서 작성", "adobaro": "포트폴리오 자동 생성 및 원클릭 지원" },
-        "settlement": { "label": "정산", "manual": "중국 플랫폼 수익 회수 불가 사례 다수", "adobaro": "지갑을 통한 통합 정산·출금 지원" }
+        "settlement": { "label": "수익 정산", "manual": "중국 플랫폼 수익 회수 불가 사례 다수", "adobaro": "지갑을 통한 통합 정산·출금 지원" }
       }
     },
     "faq": {
@@ -508,12 +508,12 @@
             "자막이 아예 필요 없는 비언어 콘텐츠(먹방, 애니메이션, 댄스 등)는 해외 시청 비중이 구조적으로 높다는 점도 자막 전략을 세울 때 함께 고려할 요소입니다.",
             "중화권 플랫폼(빌리빌리, 도우인 등)은 유튜브식 자동 번역·커뮤니티 자막 구조가 통하지 않아 별도 전략이 필요합니다."
           ],
-          "bodyImage": { "src": "/images/magazine/article-subtitles-comparison.png", "aspectRatio": "720/199" },
+          "bodyImage": { "src": "/images/magazine/article-subtitles-comparison.jpg", "aspectRatio": "720/199" },
           "sections": [
             {
               "title": "왜 영어 자막부터 시작하는가",
               "intro": "국내 크리에이터가 해외 진출을 고민할 때 가장 먼저 시도하는 것이 영어 자막입니다. 진입장벽이 낮고, 비용 부담이 크지 않고, 기존 영상을 그대로 활용할 수 있기 때문입니다. 유튜브는 국내 인구(약 4,600만 명)와 비교할 수 없을 만큼 큰 글로벌 이용자층을 가진 플랫폼입니다. 월간 로그인 사용자만 24억 9천만 명 수준으로 알려져 있고, 하나의 콘텐츠를 영어로 노출시키는 것만으로도 국내 채널과 글로벌 채널의 도달 범위 차이는 크게 벌어집니다. 여기에 K-콘텐츠에 대한 글로벌 관심 증가가 더해지면서, 자막은 이미 관심을 갖고 유입된 외국인 시청자가 콘텐츠를 끝까지 소비하게 만드는 최소한의 장치로 자리 잡았습니다.",
-              "image": { "src": "/images/magazine/article-subtitles-body-1.png", "aspectRatio": "720/368" }
+              "image": { "src": "/images/magazine/article-subtitles-body-1.jpg", "aspectRatio": "720/368" }
             },
             {
               "title": "자막의 실제 효과 — 있지만 크지는 않다",
@@ -563,7 +563,7 @@
         "fullBody": {
           "summaryTitle": "핵심 요약",
           "summaryText": "조회수가 갑자기 떨어지는 주된 이유는 **① 플랫폼 알고리즘 변경, ② 콘텐츠 소재의 시의성 소멸, ③ 게시 주기 불규칙, ④ 썸네일·제목 피로도, ⑤ 경쟁 콘텐츠 증가, ⑥ 계정 패널티(어뷰징 의심), ⑦ 외부 유입 채널 변화** 이 일곱 가지로 정리할 수 있습니다. 대부분의 경우 하나의 원인이 아니라 여러 요인이 겹쳐서 발생하며, 원인을 정확히 파악하려면 애널리틱스 데이터를 시계열로 비교하는 작업이 필요합니다.",
-          "bodyImage": { "src": "/images/magazine/article-view-drop-body-1.png", "aspectRatio": "720/312" },
+          "bodyImage": { "src": "/images/magazine/article-view-drop-body-1.jpg", "aspectRatio": "720/312" },
           "sections": [
             {
               "title": "1. 플랫폼 알고리즘 변경",
@@ -666,7 +666,7 @@
         "fullBody": {
           "summaryTitle": "핵심 요약",
           "summaryText": "**구독자 수와 조회수는 상관관계가 약합니다.** 유튜브를 비롯한 대부분의 플랫폼에서 조회수의 상당 부분은 탐색 피드·추천 피드·검색을 통해 유입된 비구독자에게서 발생합니다. 알고리즘은 채널의 구독자 규모가 아니라 **개별 영상의 클릭률(CTR)과 시청 지속시간(Retention)**을 기준으로 노출을 결정하기 때문에, 구독자 1,000명짜리 채널의 영상이 구독자 10만 명짜리 채널의 영상보다 더 많이 조회되는 일이 흔하게 일어납니다. 다만 구독자는 '초기 momentum'과 '안정적인 조회수 베이스라인'을 제공한다는 점에서 여전히 의미가 있습니다.",
-          "bodyImage": { "src": "/images/magazine/article-subs-vs-views-body-1.png", "aspectRatio": "720/610" },
+          "bodyImage": { "src": "/images/magazine/article-subs-vs-views-body-1.jpg", "aspectRatio": "720/610" },
           "sections": [
             {
               "title": "조회수는 어디서 오는가: 구독자는 일부일 뿐이다",
@@ -751,7 +751,7 @@
         "fullBody": {
           "summaryTitle": "핵심 요약",
           "summaryText": "유튜브 외에 해외 성장을 노릴 수 있는 대표적인 플랫폼은 **도우인(抖音), 빌리빌리(Bilibili), 콰이쇼우(快手), 샤오홍슈(小红书), 아이치이(iQIYI)** 등 중화권 5대 플랫폼입니다. 이들은 인스타그램·유튜브 접근이 제한된 14억 인구의 중국 시장을 직접 겨냥할 수 있다는 점에서 다른 어떤 대안보다 확장성이 큽니다. 다만 실명 인증, 현지 연락처 확보, 플랫폼별 운영 정책 이해라는 진입 장벽이 있어, 개인 크리에이터가 혼자 채널을 개설·운영하기는 쉽지 않습니다. adobaRo의 AI 글로벌 에이전트는 이 다섯 플랫폼을 모두 지원하며, 콘텐츠 로컬라이징부터 업로드까지 자동화합니다.",
-          "bodyImage": { "src": "/images/magazine/article-china-platforms-body-1.png", "aspectRatio": "720/480" },
+          "bodyImage": { "src": "/images/magazine/article-china-platforms-body-1.jpg", "aspectRatio": "720/480" },
           "sections": [
             {
               "title": "왜 유튜브만으로는 성장에 한계가 있을까",
@@ -837,7 +837,7 @@
         "fullBody": {
           "summaryTitle": "핵심 요약",
           "summaryText": "채널의 언어와 콘텐츠 정체성을 한국어로 유지하면서도 해외 시청자를 늘리는 것은 충분히 실현 가능한 전략입니다. 핵심은 원본 콘텐츠를 바꾸는 것이 아니라, 제목·설명·태그의 현지화와 플랫폼별 배포 전략을 별도로 설계하는 데 있습니다. 자막만 추가하는 것으로는 해외 유입이 늘지 않습니다 — 가장 흔한 오해입니다. 자막은 이미 도달한 시청자의 리텐션을 높일 뿐, 새로운 시청자를 데려오지는 않습니다. 실질적인 시청자 확대는 언어 장벽 해소가 아니라 각 시장의 탐색·추천 알고리즘에 콘텐츠가 노출되도록 만드는 작업에서 시작됩니다. adobaRo의 AI 글로벌 에이전트는 제목/설명 현지화, 7개 언어권 유튜브 배포, 중국 플랫폼(빌리빌리, 콰이쇼우, 샤오홍슈, iQIYI, 도우인) 유통까지 이 전 과정을 하나의 워크플로우로 지원합니다.",
-          "bodyImage": { "src": "/images/magazine/article-keep-korean-channel-body-1.png", "aspectRatio": "720/405" },
+          "bodyImage": { "src": "/images/magazine/article-keep-korean-channel-body-1.jpg", "aspectRatio": "720/405" },
           "sections": [
             {
               "title": "왜 \"채널을 그대로 유지\"하는 것이 오히려 유리한가",
@@ -987,7 +987,7 @@
             "**유튜브 자동 더빙 시스템도 이 원리를 이미 전제하고 있다.** 대사가 거의 없거나 음악 위주인 영상은 애초에 더빙 대상에서 제외되는데, 이는 언어 저관여 콘텐츠가 더빙 없이도 시청 경험이 완결된다는 것을 플랫폼이 사실상 인정하는 것이다.",
             "**다만 \"언어 제로\"와 \"현지화 제로\"는 다르다.** 체류 시간을 유지하는 것은 포맷의 몫이지만, 애초에 그 시청자에게 영상이 도달하게 만드는 것(제목·썸네일·설명란)은 별도의 현지화 작업이 필요하다. 포맷을 잘 골라도 노출이 안 되면 체류 시간 자체가 발생하지 않는다."
           ],
-          "bodyImage": { "src": "/images/magazine/article-no-talking-format-body-1.png", "aspectRatio": "720/402" },
+          "bodyImage": { "src": "/images/magazine/article-no-talking-format-body-1.jpg", "aspectRatio": "720/402" },
           "sections": [
             {
               "title": "\"체류 시간이 길다\"는 것이 의미하는 것",

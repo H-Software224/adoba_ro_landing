@@ -23,7 +23,7 @@ function BoldText({ text }: { text: string }) {
 
 function DataTable({ table }: { table: { headers: string[]; rows: string[][] } }) {
   return (
-    <div className="overflow-x-auto rounded-2xl border border-[#e2e8f0]">
+    <div className="relative overflow-x-auto rounded-2xl border border-[#e2e8f0]">
       <table className="w-full min-w-[560px] border-collapse text-left text-b3">
         <thead>
           <tr className="bg-[#f7f8fb]">
@@ -46,6 +46,10 @@ function DataTable({ table }: { table: { headers: string[]; rows: string[][] } }
           ))}
         </tbody>
       </table>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white to-transparent lg:hidden"
+      />
     </div>
   )
 }
@@ -70,7 +74,7 @@ export async function ArticleBody({ article }: { article: Article }) {
 
       {article.image && (
         <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-[#e8ebf6]">
-          <Image src={article.image} alt="" fill className="object-cover" />
+          <Image src={article.image} alt="" fill sizes="(min-width: 800px) 712px, 100vw" className="object-cover" />
         </div>
       )}
 
@@ -107,7 +111,13 @@ export async function ArticleBody({ article }: { article: Article }) {
               className="relative w-full overflow-hidden rounded-3xl"
               style={{ aspectRatio: fullBody.bodyImage.aspectRatio }}
             >
-              <Image src={fullBody.bodyImage.src} alt="" fill className="object-cover" />
+              <Image
+                src={fullBody.bodyImage.src}
+                alt=""
+                fill
+                sizes="(min-width: 800px) 712px, 100vw"
+                className="object-cover"
+              />
             </div>
           )}
 
@@ -140,7 +150,13 @@ export async function ArticleBody({ article }: { article: Article }) {
               {section.table && <DataTable table={section.table} />}
               {section.image && (
                 <div className="relative w-full overflow-hidden rounded-3xl" style={{ aspectRatio: section.image.aspectRatio }}>
-                  <Image src={section.image.src} alt="" fill className="object-cover" />
+                  <Image
+                    src={section.image.src}
+                    alt=""
+                    fill
+                    sizes="(min-width: 800px) 712px, 100vw"
+                    className="object-cover"
+                  />
                 </div>
               )}
             </div>

@@ -27,6 +27,7 @@ export async function HowToSection() {
           alt=""
           width={1360}
           height={765}
+          sizes="(min-width: 1360px) 1360px, 100vw"
           className="w-full max-w-[1360px] rounded-3xl"
         />
       </div>

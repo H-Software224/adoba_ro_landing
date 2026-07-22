@@ -37,7 +37,7 @@ export async function PlansSection() {
   ]
 
   return (
-    <section className="relative z-10 -mt-[40vh] rounded-t-[40px] bg-[#e8ebf6] px-6 py-20 lg:px-10">
+    <section className="relative z-10 -mt-[40dvh] rounded-t-[40px] bg-[#e8ebf6] px-6 py-20 lg:px-10">
       <JsonLd data={schemas} />
       <div className="mx-auto flex max-w-[1360px] flex-col gap-24">
         <SectionHeading level={2}>{t.rich('plans.title', { br: () => <br /> })}</SectionHeading>

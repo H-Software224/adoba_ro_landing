@@ -35,7 +35,7 @@ export async function ListSection() {
   ]
 
   return (
-    <section className="relative z-10 -mt-[40vh] rounded-t-[40px] bg-white px-6 py-20 lg:px-10">
+    <section className="relative z-10 -mt-[40dvh] rounded-t-[40px] bg-white px-6 py-20 lg:px-10">
       <JsonLd data={schemas} />
       <div className="mx-auto max-w-[1360px]">
         <ArticleFeed items={articles} pageSize={8} columns={4} />

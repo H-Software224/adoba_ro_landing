@@ -38,7 +38,9 @@ export default {
         h3: ['clamp(1.375rem, 1.1rem + 1.4vw, 2rem)', { lineHeight: '1', letterSpacing: '-0.0225em', fontWeight: '600' }],
         b1: ['clamp(1.125rem, 1rem + 0.6vw, 1.75rem)', { lineHeight: '1.5', letterSpacing: '-0.0225em', fontWeight: '400' }],
         b2: ['clamp(1rem, 0.9rem + 0.5vw, 1.5rem)', { lineHeight: '1.5', letterSpacing: '-0.0225em', fontWeight: '400' }],
-        b3: ['clamp(0.9375rem, 0.85rem + 0.4vw, 1.25rem)', { lineHeight: '1.5', letterSpacing: '-0.0225em', fontWeight: '400' }],
+        // Floor raised to 1rem(16px) for mobile readability (was 0.9375rem/15px); tracking
+        // eased to -0.01em at this size since -0.0225em reads as cramped below 16px.
+        b3: ['clamp(1rem, 0.85rem + 0.4vw, 1.25rem)', { lineHeight: '1.5', letterSpacing: '-0.01em', fontWeight: '400' }],
       },
     },
   },

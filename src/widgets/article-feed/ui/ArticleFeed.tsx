@@ -63,7 +63,7 @@ export function ArticleFeed({
               key={pageNumber}
               type="button"
               onClick={() => setPage(pageNumber)}
-              aria-current={pageNumber === page}
+              aria-current={pageNumber === page ? 'page' : undefined}
               className={cn(
                 'flex size-12 shrink-0 items-center justify-center rounded-full text-b3',
                 pageNumber === page ? 'bg-text-primary text-white' : 'bg-white text-text-secondary',

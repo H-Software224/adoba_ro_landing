@@ -23,7 +23,7 @@ export async function StatsSection() {
             <div
               key={stat.key}
               className={cn(
-                'relative flex h-[231px] items-center overflow-hidden rounded-3xl bg-[#f7f8fb] px-6',
+                'relative flex min-h-[140px] items-center overflow-hidden rounded-3xl bg-[#f7f8fb] px-6 py-6 sm:h-[231px] sm:py-0',
                 stat.colSpan,
               )}
             >
@@ -33,7 +33,14 @@ export async function StatsSection() {
                   <CountUp text={t(`${stat.key}.value`)} />
                 </dd>
               </div>
-              <Image src={stat.icon} alt="" width={180} height={180} className="ml-auto shrink-0" />
+              <Image
+                src={stat.icon}
+                alt=""
+                width={180}
+                height={180}
+                sizes="(min-width: 640px) 180px, 96px"
+                className="ml-auto size-24 shrink-0 sm:size-[180px]"
+              />
             </div>
           ))}
         </dl>

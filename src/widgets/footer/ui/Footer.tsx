@@ -24,7 +24,7 @@ export async function Footer() {
   return (
     <footer className="rounded-t-[80px] bg-[#111111] px-8 pb-16 pt-20 text-white lg:px-[120px]">
       <Image src="/images/logo/ro-mark-white.png" alt="" width={160} height={40} />
-      <p className="mt-6 text-[40px] font-semibold leading-none tracking-[-0.0225em] text-white">
+      <p className="mt-6 text-[28px] font-semibold leading-none tracking-[-0.0225em] text-white sm:text-[32px] lg:text-[40px]">
         {t.rich('home.footer.tagline', { br: () => <br /> })}
       </p>
       <StartFreeButton variant="ghost-light" className="mt-8 h-[60px] w-[240px] rounded-xl text-b3">
@@ -38,7 +38,7 @@ export async function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={link.name}
-            className="flex size-8 items-center justify-center"
+            className="flex size-11 items-center justify-center"
           >
             <Image src={link.icon} alt="" width={24} height={24} />
           </a>

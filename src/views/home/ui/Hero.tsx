@@ -25,8 +25,8 @@ export async function Hero() {
   })
 
   return (
-    <div className="relative min-h-[140vh]">
-      <section className="sticky top-[95px] flex h-screen items-center overflow-hidden bg-white sm:top-[73px] lg:top-[72px]">
+    <div className="relative min-h-[140dvh]">
+      <section className="sticky top-[95px] flex h-dvh items-center overflow-hidden bg-white sm:top-[73px] lg:top-[72px]">
         <JsonLd data={schema} />
         <Image
           src="/images/home/hero-background.jpg"

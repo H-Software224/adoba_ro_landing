@@ -31,7 +31,15 @@ export function ArticleCard({ article, href, onClick }: { article: Article; href
   return (
     <figure className="flex flex-col gap-4">
       <div className={cn('relative w-full overflow-hidden rounded-3xl bg-[#e8ebf6]', ASPECT_BY_TYPE[article.type])}>
-        {article.image && <Image src={article.image} alt="" fill className="object-cover" />}
+        {article.image && (
+          <Image
+            src={article.image}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 400px, (min-width: 640px) 45vw, 90vw"
+            className="object-cover"
+          />
+        )}
         {expandButton}
       </div>
       <figcaption>

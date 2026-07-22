@@ -34,7 +34,7 @@ export async function ListSection() {
     )
 
   return (
-    <section id="events" className="relative z-10 -mt-[40vh] scroll-mt-24 rounded-t-[40px] bg-white px-6 py-20 lg:px-10">
+    <section id="events" className="relative z-10 -mt-[40dvh] scroll-mt-24 rounded-t-[40px] bg-white px-6 py-20 lg:px-10">
       <JsonLd data={[listSchema, ...eventSchemas]} />
       <div className="mx-auto flex max-w-[1360px] flex-col gap-12">
         <SectionHeading level={2}>{t('list.title')}</SectionHeading>

@@ -28,7 +28,13 @@ export function ArticleModal({ article, onClose }: { article: Article; onClose: 
         <div className="flex flex-col gap-10 sm:flex-row">
           {article.image && (
             <div className="relative h-[280px] w-full shrink-0 overflow-hidden rounded-3xl bg-[#e8ebf6] sm:h-[470px] sm:w-[320px]">
-              <Image src={article.image} alt="" fill className="object-cover" />
+              <Image
+                src={article.image}
+                alt=""
+                fill
+                sizes="(min-width: 640px) 320px, 100vw"
+                className="object-cover"
+              />
             </div>
           )}
           <div className="flex flex-1 flex-col gap-6">

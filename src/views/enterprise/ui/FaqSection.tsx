@@ -30,11 +30,12 @@ export async function FaqSection() {
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-h3 font-semibold text-white marker:content-none">
                 {item.question}
                 <span className="relative block size-8 shrink-0">
-                  <Image src="/images/enterprise/icon-plus.png" alt="" fill className="group-open:hidden" />
+                  <Image src="/images/enterprise/icon-plus.png" alt="" fill sizes="32px" className="group-open:hidden" />
                   <Image
                     src="/images/enterprise/icon-minus.svg"
                     alt=""
                     fill
+                    sizes="32px"
                     className="hidden group-open:block"
                   />
                 </span>

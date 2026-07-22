@@ -23,9 +23,9 @@ export function LocaleSwitcher({ variant = 'default' }: { variant?: 'default' | 
             key={nextLocale}
             type="button"
             onClick={() => router.replace(pathname, { locale: nextLocale })}
-            aria-current={nextLocale === locale}
+            aria-current={nextLocale === locale ? 'true' : undefined}
             className={cn(
-              'rounded-full px-3 py-2 text-[14px] transition-colors',
+              'inline-flex min-h-11 items-center justify-center rounded-full px-3 py-2 text-[14px] transition-colors',
               nextLocale === locale ? 'bg-white text-text-primary' : 'text-white/80 hover:text-white',
             )}
           >
@@ -43,9 +43,9 @@ export function LocaleSwitcher({ variant = 'default' }: { variant?: 'default' | 
           key={nextLocale}
           type="button"
           onClick={() => router.replace(pathname, { locale: nextLocale })}
-          aria-current={nextLocale === locale}
+          aria-current={nextLocale === locale ? 'true' : undefined}
           className={cn(
-            'rounded-full px-2 py-1 text-[13px] transition-colors sm:px-3 sm:text-[14px]',
+            'inline-flex min-h-11 items-center justify-center rounded-full px-3 py-1 text-[14px] transition-colors',
             nextLocale === locale
               ? 'bg-text-primary text-white shadow-[0px_4px_2px_rgba(0,0,0,0.1)]'
               : 'text-text-secondary hover:text-text-primary',

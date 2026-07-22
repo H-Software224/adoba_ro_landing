@@ -210,7 +210,7 @@
           "adobaro": "Auto-generated portfolio, one-click apply"
         },
         "settlement": {
-          "label": "Settlement",
+          "label": "Earnings Settlement",
           "manual": "Often unable to withdraw earnings from Chinese platforms",
           "adobaro": "Unified settlement & withdrawal via wallet"
         }
@@ -690,7 +690,7 @@
             "Chinese-language platforms (Bilibili, Douyin, etc.) need a separate strategy, since YouTube's automatic-translation and community-caption structure doesn't apply there."
           ],
           "bodyImage": {
-            "src": "/images/magazine/article-subtitles-comparison.png",
+            "src": "/images/magazine/article-subtitles-comparison.jpg",
             "aspectRatio": "720/199"
           },
           "sections": [
@@ -698,7 +698,7 @@
               "title": "Why English Subtitles Are the First Thing Creators Try",
               "intro": "When domestic creators consider going global, English subtitles are usually the first thing they try. The barrier to entry is low, the cost isn't heavy, and existing footage can be reused as-is. YouTube is a platform with a global user base incomparably larger than Korea's domestic population (about 46 million) — monthly logged-in users alone are known to be around 2.49 billion — so exposing a single piece of content in English alone widens the reach gap between a domestic channel and a global one enormously. Add rising global interest in K-content on top of that, and subtitles have become the minimum device that lets foreign viewers who've already shown interest keep watching a piece of content all the way through.",
               "image": {
-                "src": "/images/magazine/article-subtitles-body-1.png",
+                "src": "/images/magazine/article-subtitles-body-1.jpg",
                 "aspectRatio": "720/368"
               }
             },
@@ -766,7 +766,7 @@
           "summaryTitle": "Key Takeaway",
           "summaryText": "The main reasons views suddenly drop can be organized into these seven: **① algorithm changes, ② the content losing timeliness, ③ irregular posting, ④ thumbnail/title fatigue, ⑤ rising competing content, ⑥ account penalties (suspected abuse), ⑦ changes in external referral channels.** In most cases it isn't a single cause but several factors overlapping, and pinning down the exact cause requires comparing analytics data over time.",
           "bodyImage": {
-            "src": "/images/magazine/article-view-drop-body-1.png",
+            "src": "/images/magazine/article-view-drop-body-1.jpg",
             "aspectRatio": "720/312"
           },
           "sections": [
@@ -872,7 +872,7 @@
           "summaryTitle": "Key Takeaway",
           "summaryText": "**Subscriber count and view count are weakly correlated.** On YouTube and most other platforms, a large share of views comes from non-subscribers who arrive through Browse feeds, Suggested feeds, and Search. Because the algorithm decides exposure based on **an individual video's click-through rate (CTR) and watch time (retention)** rather than the channel's subscriber size, it's common for a video from a 1,000-subscriber channel to get more views than one from a 100,000-subscriber channel. That said, subscribers still matter in that they provide 'initial momentum' and a 'stable view-count baseline.'",
           "bodyImage": {
-            "src": "/images/magazine/article-subs-vs-views-body-1.png",
+            "src": "/images/magazine/article-subs-vs-views-body-1.jpg",
             "aspectRatio": "720/610"
           },
           "sections": [
@@ -960,7 +960,7 @@
           "summaryTitle": "Key Takeaway",
           "summaryText": "Beyond YouTube, the leading platforms for pursuing overseas growth are the Chinese-language 'big five': **Douyin (抖音), Bilibili, Kuaishou (快手), Xiaohongshu (小红书), and iQIYI.** They offer more room to expand than any other alternative, since they can directly target China's 1.4-billion-person market, where Instagram and YouTube access is restricted. That said, there are entry barriers — real-name verification, securing a local contact, and understanding each platform's operating policies — that make it hard for an individual creator to set up and run a channel alone. adobaRo's AI Global Agent supports all five of these platforms, automating everything from content localization to upload.",
           "bodyImage": {
-            "src": "/images/magazine/article-china-platforms-body-1.png",
+            "src": "/images/magazine/article-china-platforms-body-1.jpg",
             "aspectRatio": "720/480"
           },
           "sections": [
@@ -1049,7 +1049,7 @@
           "summaryTitle": "Key Takeaway",
           "summaryText": "Growing overseas viewership while keeping your channel's language and content identity in Korean is a fully achievable strategy. The key isn't changing the original content, but separately designing localization of the title/description/tags and a platform-specific distribution strategy. Adding subtitles alone won't grow overseas inflow — this is the most common misconception. Subtitles only raise the retention of viewers who've already reached you; they don't bring in new viewers. Real viewer growth starts not from removing the language barrier, but from making the content surface in each market's browse/recommendation algorithm. adobaRo's AI Global Agent supports this entire process as a single workflow — title/description localization, distribution to 7 YouTube language markets, and distribution to Chinese platforms (Bilibili, Kuaishou, Xiaohongshu, iQIYI, Douyin).",
           "bodyImage": {
-            "src": "/images/magazine/article-keep-korean-channel-body-1.png",
+            "src": "/images/magazine/article-keep-korean-channel-body-1.jpg",
             "aspectRatio": "720/405"
           },
           "sections": [
@@ -1205,7 +1205,7 @@
             "**That said, \"zero language\" isn't the same as \"zero localization.\"** Maintaining watch time is the format's job, but making the video reach that viewer in the first place (title, thumbnail, description) requires separate localization work. Even a well-chosen format generates no watch time if it isn't exposed."
           ],
           "bodyImage": {
-            "src": "/images/magazine/article-no-talking-format-body-1.png",
+            "src": "/images/magazine/article-no-talking-format-body-1.jpg",
             "aspectRatio": "720/402"
           },
           "sections": [

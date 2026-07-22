@@ -17,6 +17,7 @@ export async function WalletSection() {
           alt=""
           width={668}
           height={852}
+          sizes="(min-width: 1024px) 500px, 100vw"
           className="w-full max-w-[500px] rounded-3xl"
         />
       </div>
