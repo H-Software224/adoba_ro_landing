@@ -19,7 +19,7 @@ export function ContactForm() {
     <>
       <form
         id="ccForm"
-        action="https://formsubmit.co/sjpark@adoba.net"
+        action="https://formsubmit.co/adobaro.marketing@adoba.net"
         method="POST"
         target="ccHiddenFrame"
         onSubmit={() => setSubmitted(true)}
