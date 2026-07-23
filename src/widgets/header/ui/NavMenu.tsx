@@ -1,6 +1,4 @@
-'use client'
-
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/shared/i18n/compat'
 import { Link, usePathname } from '@/shared/i18n/navigation'
 import { NAV_ITEMS } from '@/shared/config/navigation'
 import { cn } from '@/shared/lib/cn'

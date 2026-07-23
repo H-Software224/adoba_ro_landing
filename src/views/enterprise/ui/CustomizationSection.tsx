@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { howToSchema } from '@/shared/seo/schemas/how-to'
@@ -19,8 +19,8 @@ const PILL_GRADIENT = [
 // the layout has enough width for the Figma-spec size.
 const PILL_INDENT = ['lg:ml-0', 'lg:ml-[40px] xl:ml-[120px]', 'lg:ml-[80px] xl:ml-[240px]', 'lg:ml-[120px] xl:ml-[360px]']
 
-export async function CustomizationSection() {
-  const t = await getTranslations('enterprise.customization')
+export function CustomizationSection() {
+  const t = getTranslations('enterprise.customization')
 
   const schema = howToSchema({
     name: t('title').replace('\n', ' '),

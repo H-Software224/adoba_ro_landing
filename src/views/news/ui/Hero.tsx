@@ -1,10 +1,10 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { StartFreeButton } from '@/features/start-free'
 
-export async function Hero() {
-  const t = await getTranslations('news.hero')
+export function Hero() {
+  const t = getTranslations('news.hero')
 
   return (
     <div className="relative min-h-[140dvh]">

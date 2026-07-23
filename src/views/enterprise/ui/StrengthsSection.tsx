@@ -1,10 +1,10 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
 const ITEM_KEYS = ['analysis', 'deploy', 'direction', 'edit'] as const
 
-export async function StrengthsSection() {
-  const t = await getTranslations('enterprise.strengths')
+export function StrengthsSection() {
+  const t = getTranslations('enterprise.strengths')
 
   return (
     <section className="relative z-10 -mt-[40dvh] rounded-t-[40px] bg-enterprise-bg px-6 py-20 lg:px-10 lg:py-32">

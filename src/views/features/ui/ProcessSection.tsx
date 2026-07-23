@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { JsonLd } from '@/shared/seo/JsonLd'
@@ -6,8 +6,8 @@ import { howToSchema } from '@/shared/seo/schemas/how-to'
 
 const STEP_KEYS = ['upload', 'detect', 'localize', 'publish'] as const
 
-export async function ProcessSection() {
-  const t = await getTranslations('features.process')
+export function ProcessSection() {
+  const t = getTranslations('features.process')
 
   const steps = STEP_KEYS.map((key) => t(`steps.${key}`))
   const schema = howToSchema({

@@ -1,10 +1,10 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { ContactForm } from './ContactForm'
 
-export async function ContactSection() {
-  const t = await getTranslations('enterprise.contact')
+export function ContactSection() {
+  const t = getTranslations('enterprise.contact')
 
   return (
     <section id="contact" className="bg-enterprise-bg px-6 py-20 lg:px-10 lg:py-32">

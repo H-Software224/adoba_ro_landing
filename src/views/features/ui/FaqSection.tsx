@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { Accordion } from '@/shared/ui/Accordion'
 import { JsonLd } from '@/shared/seo/JsonLd'
@@ -6,8 +6,8 @@ import { faqPageSchema } from '@/shared/seo/schemas/faq-page'
 
 const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5'] as const
 
-export async function FaqSection() {
-  const t = await getTranslations('features.faq')
+export function FaqSection() {
+  const t = getTranslations('features.faq')
 
   const items = FAQ_KEYS.map((key) => ({
     id: key,

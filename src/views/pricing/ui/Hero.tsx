@@ -1,13 +1,13 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { StartFreeButton } from '@/features/start-free'
 import { Link } from '@/shared/i18n/navigation'
 
-export async function Hero() {
-  const t = await getTranslations('pricing.hero')
-  const tCommon = await getTranslations('common')
+export function Hero() {
+  const t = getTranslations('pricing.hero')
+  const tCommon = getTranslations('common')
 
   return (
     <div className="relative min-h-[140dvh]">

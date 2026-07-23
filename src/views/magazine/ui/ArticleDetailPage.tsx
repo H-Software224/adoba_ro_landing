@@ -1,5 +1,5 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { notFound } from 'next/navigation'
+import { Navigate, useParams } from 'react-router-dom'
+import { getTranslations } from '@/shared/i18n/compat'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { Accordion } from '@/shared/ui/Accordion'
 import { JsonLd } from '@/shared/seo/JsonLd'
@@ -9,20 +9,19 @@ import { faqPageSchema } from '@/shared/seo/schemas/faq-page'
 import { SITE_URL } from '@/shared/lib/build-alternates'
 import { ArticleBody } from '@/widgets/article-body'
 import { getMagazineArticleById } from '../model/articles'
+import { useArticleMeta } from '../model/metadata'
 
-export async function ArticleDetailPage({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>
-}) {
-  const { locale, slug } = await params
-  setRequestLocale(locale)
+export function ArticleDetailPage() {
+  const { slug } = useParams<{ slug: string }>()
 
-  const t = await getTranslations('magazine')
-  const article = getMagazineArticleById(t, slug)
-  if (!article) notFound()
+  const t = getTranslations('magazine')
+  const article = slug ? getMagazineArticleById(t, slug) : undefined
 
-  const tBreadcrumb = await getTranslations('magazine.breadcrumb')
+  useArticleMeta(article)
+
+  if (!article) return <Navigate to="/404" replace />
+
+  const tBreadcrumb = getTranslations('magazine.breadcrumb')
   const canonicalUrl = `${SITE_URL}/magazine/${article.id}`
 
   const schema = blogPostingSchema({
@@ -44,7 +43,7 @@ export async function ArticleDetailPage({
     { name: article.title, url: canonicalUrl },
   ])
 
-  const tArticle = await getTranslations('magazine.article')
+  const tArticle = getTranslations('magazine.article')
   const faqSchema = article.faq ? faqPageSchema(article.faq) : null
 
   return (

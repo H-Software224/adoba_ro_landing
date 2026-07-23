@@ -1,5 +1,5 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
 const USAGE_ITEMS = [
@@ -9,8 +9,8 @@ const USAGE_ITEMS = [
   { key: 'update', icon: '/images/pricing/usage-update.png' },
 ] as const
 
-export async function UsageSection() {
-  const t = await getTranslations('pricing.usage')
+export function UsageSection() {
+  const t = getTranslations('pricing.usage')
 
   return (
     <section className="bg-[#e8ebf6] px-6 py-20 lg:px-10">

@@ -1,11 +1,11 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
 const ROW_KEYS = ['editing', 'cost', 'waitTime', 'totalCost'] as const
 
-export async function ComparisonSection() {
-  const t = await getTranslations('home.comparison')
+export function ComparisonSection() {
+  const t = getTranslations('home.comparison')
 
   return (
     <section className="bg-white px-6 py-20 lg:px-10">

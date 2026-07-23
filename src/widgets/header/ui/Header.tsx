@@ -1,13 +1,13 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { Link } from '@/shared/i18n/navigation'
 import { LocaleSwitcher } from '@/features/switch-locale'
 import { StartFreeButton } from '@/features/start-free'
 import { NavMenu } from './NavMenu'
 import { MobileNavMenu } from './MobileNavMenu'
 
-export async function Header() {
-  const t = await getTranslations()
+export function Header() {
+  const t = getTranslations()
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-[#f4f1f8] via-[#faeff3] to-[#ecf6fa]">

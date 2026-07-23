@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import type { ProductFeature } from '@/entities/product-feature'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 

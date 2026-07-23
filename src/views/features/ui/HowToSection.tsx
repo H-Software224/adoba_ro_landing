@@ -1,12 +1,12 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { howToSchema } from '@/shared/seo/schemas/how-to'
 
-export async function HowToSection() {
-  const t = await getTranslations('features.howto')
+export function HowToSection() {
+  const t = getTranslations('features.howto')
 
   const plainDescription = t.markup('description', { br: () => ' ' })
   const schema = howToSchema({

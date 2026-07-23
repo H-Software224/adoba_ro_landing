@@ -1,11 +1,11 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { FeatureShowcase } from '@/widgets/feature-showcase'
 import { getHomeFeatures } from '../model/features'
 
-export async function ProblemSection() {
-  const t = await getTranslations('home')
+export function ProblemSection() {
+  const t = getTranslations('home')
 
   return (
     <section className="relative z-10 -mt-[40dvh] rounded-t-[40px] bg-[#e9f1fa] px-6 py-20 lg:px-10">

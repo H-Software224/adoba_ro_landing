@@ -1,7 +1,5 @@
-'use client'
-
 import { useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import type { Article } from '@/entities/article'
 import { cn } from '@/shared/lib/cn'
 import { ArticleCard } from './ArticleCard'

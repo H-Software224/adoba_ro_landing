@@ -1,6 +1,6 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import { StartFreeButton } from '@/features/start-free'
 import type { Locale } from '@/shared/i18n/routing'
 
@@ -18,8 +18,8 @@ const SNS_LINKS = {
   ],
 } as const
 
-export async function Footer({ locale }: { locale: Locale }) {
-  const t = await getTranslations()
+export function Footer({ locale }: { locale: Locale }) {
+  const t = getTranslations()
   const snsLinks = SNS_LINKS[locale === 'en' ? 'en' : 'ko']
 
   return (

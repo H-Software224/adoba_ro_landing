@@ -1,10 +1,10 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
 const STAT_KEYS = ['speed', 'volume'] as const
 
-export async function ReportHighlightsSection() {
-  const t = await getTranslations('enterprise.highlights')
+export function ReportHighlightsSection() {
+  const t = getTranslations('enterprise.highlights')
 
   return (
     <section className="bg-enterprise-bg px-6 py-20 text-center lg:px-10 lg:py-32">

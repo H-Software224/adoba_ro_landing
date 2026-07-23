@@ -1,7 +1,7 @@
 import type { ProductFeature } from '@/entities/product-feature'
-import type { getTranslations } from 'next-intl/server'
+import type { getTranslations } from '@/shared/i18n/compat'
 
-type Translator = Awaited<ReturnType<typeof getTranslations<'home'>>>
+type Translator = ReturnType<typeof getTranslations>
 
 export function getHomeFeatures(t: Translator): ProductFeature[] {
   return [

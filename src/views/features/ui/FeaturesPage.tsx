@@ -1,6 +1,7 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { serviceSchema } from '@/shared/seo/schemas/service'
+import { useFeaturesMeta } from '../model/metadata'
 import { Hero } from './Hero'
 import { CategoriesSection } from './CategoriesSection'
 import { HowToSection } from './HowToSection'
@@ -10,11 +11,10 @@ import { WalletSection } from './WalletSection'
 import { ComparisonSection } from './ComparisonSection'
 import { FaqSection } from './FaqSection'
 
-export async function FeaturesPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params
-  setRequestLocale(locale)
+export function FeaturesPage() {
+  useFeaturesMeta()
 
-  const t = await getTranslations('features')
+  const t = getTranslations('features')
   const subServices = [
     { name: t('howto.title'), description: t.markup('howto.description', { br: () => ' ' }) },
     {

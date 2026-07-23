@@ -1,7 +1,5 @@
-'use client'
-
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/shared/i18n/compat'
 
 const FIELD_KEYS = ['company', 'contactName', 'email', 'phone'] as const
 const FIELD_NAME: Record<(typeof FIELD_KEYS)[number], string> = {

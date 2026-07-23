@@ -1,10 +1,9 @@
-import { setRequestLocale } from 'next-intl/server'
+import { useNewsMeta } from '../model/metadata'
 import { Hero } from './Hero'
 import { ListSection } from './ListSection'
 
-export async function NewsPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params
-  setRequestLocale(locale)
+export function NewsPage() {
+  useNewsMeta()
 
   return (
     <>

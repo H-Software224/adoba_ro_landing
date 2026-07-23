@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { JsonLd } from '@/shared/seo/JsonLd'
@@ -6,8 +6,8 @@ import { reviewSchema } from '@/shared/seo/schemas/review'
 
 const REVIEW_KEYS = ['a', 'b', 'c'] as const
 
-export async function ReviewsSection() {
-  const t = await getTranslations('home.reviews')
+export function ReviewsSection() {
+  const t = getTranslations('home.reviews')
 
   const schemas = REVIEW_KEYS.map((key) =>
     reviewSchema({

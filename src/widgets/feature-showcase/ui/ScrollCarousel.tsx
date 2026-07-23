@@ -1,7 +1,5 @@
-'use client'
-
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import { cn } from '@/shared/lib/cn'
 
 const AUTOPLAY_INTERVAL_MS = 4000

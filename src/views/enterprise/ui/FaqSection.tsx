@@ -1,5 +1,5 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { faqPageSchema } from '@/shared/seo/schemas/faq-page'
@@ -12,8 +12,8 @@ interface FaqItem {
   links?: { label: string; href: string }[]
 }
 
-export async function FaqSection() {
-  const t = await getTranslations('enterprise.faq')
+export function FaqSection() {
+  const t = getTranslations('enterprise.faq')
   const items = FAQ_KEYS.map((key) => ({ key, ...(t.raw(`items.${key}`) as FaqItem) }))
   const schema = faqPageSchema(items.map(({ question, answer }) => ({ question, answer })))
 

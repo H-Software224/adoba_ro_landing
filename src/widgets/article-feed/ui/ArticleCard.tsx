@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import type { Article } from '@/entities/article'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { Link } from '@/shared/i18n/navigation'

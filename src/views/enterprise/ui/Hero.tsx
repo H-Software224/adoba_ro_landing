@@ -1,11 +1,11 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { Button } from '@/shared/ui/Button'
 import { Gnb } from './Gnb'
 
-export async function Hero() {
-  const t = await getTranslations('enterprise.hero')
+export function Hero() {
+  const t = getTranslations('enterprise.hero')
 
   return (
     <div className="relative min-h-[140dvh]">

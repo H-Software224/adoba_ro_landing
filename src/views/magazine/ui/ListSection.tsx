@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { ArticleFeed } from '@/widgets/article-feed'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { blogSchema } from '@/shared/seo/schemas/blog'
@@ -7,8 +7,8 @@ import { itemListSchema } from '@/shared/seo/schemas/item-list'
 import { SITE_URL } from '@/shared/lib/build-alternates'
 import { getMagazineArticles } from '../model/articles'
 
-export async function ListSection() {
-  const t = await getTranslations('magazine')
+export function ListSection() {
+  const t = getTranslations('magazine')
   const articles = getMagazineArticles(t)
 
   const schemas = [

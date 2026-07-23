@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -18,40 +14,16 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "types": ["vite/client"],
     "paths": {
-      "@/app/*": [
-        "./src/app/*"
-      ],
-      "@/views/*": [
-        "./src/views/*"
-      ],
-      "@/widgets/*": [
-        "./src/widgets/*"
-      ],
-      "@/features/*": [
-        "./src/features/*"
-      ],
-      "@/entities/*": [
-        "./src/entities/*"
-      ],
-      "@/shared/*": [
-        "./src/shared/*"
-      ]
+      "@/app/*": ["./src/app/*"],
+      "@/views/*": ["./src/views/*"],
+      "@/widgets/*": ["./src/widgets/*"],
+      "@/features/*": ["./src/features/*"],
+      "@/entities/*": ["./src/entities/*"],
+      "@/shared/*": ["./src/shared/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

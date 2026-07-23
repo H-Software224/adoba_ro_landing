@@ -1,6 +1,6 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
 const CATEGORIES = [
@@ -10,8 +10,8 @@ const CATEGORIES = [
   { key: 'settlement', icon: '/images/features/category-settlement.png' },
 ] as const
 
-export async function CategoriesSection() {
-  const t = await getTranslations('features.categories')
+export function CategoriesSection() {
+  const t = getTranslations('features.categories')
 
   return (
     <section className="relative z-10 -mt-[40dvh] rounded-t-[40px] bg-gradient-to-b from-[#efeaf3] to-[#efeaf34d] px-6 py-20 lg:px-10">

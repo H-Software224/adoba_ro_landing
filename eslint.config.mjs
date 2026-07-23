@@ -1,5 +1,9 @@
-import nextConfig from 'eslint-config-next'
+import js from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
 import boundaries from 'eslint-plugin-boundaries'
+import globals from 'globals'
 
 const FSD_ELEMENTS = [
   { type: 'app', pattern: 'src/app/**' },
@@ -11,15 +15,28 @@ const FSD_ELEMENTS = [
 ]
 
 const config = [
-  ...nextConfig,
+  { ignores: ['dist/**'] },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
-    plugins: { boundaries },
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+      boundaries,
+    },
     settings: {
       'boundaries/elements': FSD_ELEMENTS,
       'boundaries/ignore': ['**/*.test.*', '**/*.config.*'],
       'boundaries/legacy-warnings': false,
     },
     rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': 'warn',
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'boundaries/element-types': [
         'error',
         {
@@ -54,8 +71,9 @@ const config = [
     },
   },
   {
-    rules: {
-      'react/no-danger': 'warn',
+    files: ['scripts/**/*.js'],
+    languageOptions: {
+      globals: { ...globals.node },
     },
   },
 ]

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import { cn } from '@/shared/lib/cn'
 
 export interface AccordionEntry {

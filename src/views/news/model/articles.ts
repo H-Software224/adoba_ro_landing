@@ -1,7 +1,7 @@
 import type { Article } from '@/entities/article'
-import type { getTranslations } from 'next-intl/server'
+import type { getTranslations } from '@/shared/i18n/compat'
 
-type Translator = Awaited<ReturnType<typeof getTranslations<'news'>>>
+type Translator = ReturnType<typeof getTranslations>
 
 /**
  * Static mock data — no CMS yet. Swap for a CMS_API_KEY fetch later; the

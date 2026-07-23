@@ -1,7 +1,7 @@
 import type { Plan } from '@/entities/plan'
-import type { getTranslations } from 'next-intl/server'
+import type { getTranslations } from '@/shared/i18n/compat'
 
-type Translator = Awaited<ReturnType<typeof getTranslations<'pricing'>>>
+type Translator = ReturnType<typeof getTranslations>
 
 export function getSubscriptionPlans(t: Translator): Plan[] {
   const perMonth = t('plans.subscription.perMonth')

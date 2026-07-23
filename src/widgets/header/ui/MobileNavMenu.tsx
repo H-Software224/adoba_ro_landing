@@ -1,8 +1,6 @@
-'use client'
-
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
-import Image from 'next/image'
+import { useTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { Link, usePathname } from '@/shared/i18n/navigation'
 import { NAV_ITEMS } from '@/shared/config/navigation'
 import { cn } from '@/shared/lib/cn'

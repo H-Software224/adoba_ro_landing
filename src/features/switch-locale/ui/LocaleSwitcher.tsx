@@ -1,7 +1,5 @@
-'use client'
-
-import { useLocale, useTranslations } from 'next-intl'
-import { usePathname, useRouter } from '@/shared/i18n/navigation'
+import { useTranslations } from '@/shared/i18n/compat'
+import { useLocale, usePathname, useRouter } from '@/shared/i18n/navigation'
 import { cn } from '@/shared/lib/cn'
 
 const LOCALE_LABEL: Record<string, string> = {

@@ -1,10 +1,10 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { Button } from '@/shared/ui/Button'
 import { LocaleSwitcher } from '@/features/switch-locale'
 
-export async function Gnb() {
-  const t = await getTranslations('enterprise.gnb')
+export function Gnb() {
+  const t = getTranslations('enterprise.gnb')
 
   return (
     <div className="sticky top-0 z-10 flex h-16 items-center justify-between gap-2 px-4 sm:px-6 lg:px-10">

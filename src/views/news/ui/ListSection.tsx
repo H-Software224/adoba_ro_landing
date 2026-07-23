@@ -1,4 +1,4 @@
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from '@/shared/i18n/compat'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { ArticleFeed } from '@/widgets/article-feed'
 import { JsonLd } from '@/shared/seo/JsonLd'
@@ -7,9 +7,9 @@ import { eventSchema } from '@/shared/seo/schemas/event'
 import { SITE_URL } from '@/shared/lib/build-alternates'
 import { getNewsArticles } from '../model/articles'
 
-export async function ListSection() {
-  const t = await getTranslations('news')
-  const locale = await getLocale()
+export function ListSection() {
+  const t = getTranslations('news')
+  const locale = getLocale()
   const articles = getNewsArticles(t, locale)
 
   const listSchema = itemListSchema(

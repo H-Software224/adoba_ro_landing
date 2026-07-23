@@ -1,6 +1,7 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { serviceSchema } from '@/shared/seo/schemas/service'
+import { useEnterpriseMeta } from '../model/metadata'
 import { Hero } from './Hero'
 import { StrengthsSection } from './StrengthsSection'
 import { ReportHighlightsSection } from './ReportHighlightsSection'
@@ -10,11 +11,10 @@ import { ComparisonSection } from './ComparisonSection'
 import { FaqSection } from './FaqSection'
 import { ContactSection } from './ContactSection'
 
-export async function EnterprisePage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params
-  setRequestLocale(locale)
+export function EnterprisePage() {
+  useEnterpriseMeta()
 
-  const t = await getTranslations('enterprise.hero')
+  const t = getTranslations('enterprise.hero')
   const schema = serviceSchema({
     name: 'adobaRo Enterprise',
     description: t('description').replace(/\n/g, ' '),

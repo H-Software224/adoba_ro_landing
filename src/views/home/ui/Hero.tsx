@@ -1,6 +1,6 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { StartFreeButton } from '@/features/start-free'
 import { Link } from '@/shared/i18n/navigation'
@@ -10,9 +10,9 @@ import { SITE_URL } from '@/shared/lib/build-alternates'
 
 const AREA_SERVED = ['중국어', '영어', '힌디어', '스페인어', '포르투갈어', '인도네시아어', '아랍어', '프랑스어']
 
-export async function Hero() {
-  const t = await getTranslations('home.hero')
-  const tCommon = await getTranslations('common')
+export function Hero() {
+  const t = getTranslations('home.hero')
+  const tCommon = getTranslations('common')
 
   const schema = serviceSchema({
     name: 'adobaRo',

@@ -1,6 +1,6 @@
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import type { Article } from '@/entities/article'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
 /** Renders `**text**` spans as bold within an otherwise plain string. */
@@ -57,8 +57,8 @@ function DataTable({ table }: { table: { headers: string[]; rows: string[][] } }
   )
 }
 
-export async function ArticleBody({ article }: { article: Article }) {
-  const t = await getTranslations('magazine.article')
+export function ArticleBody({ article }: { article: Article }) {
+  const t = getTranslations('magazine.article')
   const { fullBody } = article
 
   return (

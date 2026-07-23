@@ -1,7 +1,7 @@
 import type { Article, ArticleFullBody } from '@/entities/article'
-import type { getTranslations } from 'next-intl/server'
+import type { getTranslations } from '@/shared/i18n/compat'
 
-type Translator = Awaited<ReturnType<typeof getTranslations<'magazine'>>>
+type Translator = ReturnType<typeof getTranslations>
 
 export const MAGAZINE_ARTICLE_IDS = [
   'brand-visual',

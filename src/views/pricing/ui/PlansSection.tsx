@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { PricingTable } from '@/widgets/pricing-table'
@@ -10,8 +10,8 @@ import { getSubscriptionPlans, getRpPackages } from '../model/plans'
 const SUBSCRIPTION_PRICES = { lite: 9.9, boost: 19.9, max: 49.9 }
 const RP_PACKAGE_PRICES = { 'rp-10000': 10, 'rp-30000': 30, 'rp-50000': 50 }
 
-export async function PlansSection() {
-  const t = await getTranslations('pricing')
+export function PlansSection() {
+  const t = getTranslations('pricing')
   const subscriptionPlans = getSubscriptionPlans(t)
   const rpPackages = getRpPackages(t)
 

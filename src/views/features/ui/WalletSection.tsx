@@ -1,10 +1,10 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/shared/i18n/compat'
 import { softBreak } from '@/shared/i18n/rich'
-import Image from 'next/image'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
-export async function WalletSection() {
-  const t = await getTranslations('features.wallet')
+export function WalletSection() {
+  const t = getTranslations('features.wallet')
 
   return (
     <section className="bg-white px-6 py-20 lg:px-10">

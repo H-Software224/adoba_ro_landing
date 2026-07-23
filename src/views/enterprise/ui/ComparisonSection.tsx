@@ -1,12 +1,12 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { cn } from '@/shared/lib/cn'
 
 const ROW_KEYS = ['data', 'time', 'cycle', 'insight', 'customization'] as const
 
-export async function ComparisonSection() {
-  const t = await getTranslations('enterprise.comparison')
+export function ComparisonSection() {
+  const t = getTranslations('enterprise.comparison')
 
   return (
     <section className="bg-enterprise-bg-alt px-6 py-20 lg:px-10 lg:py-32">

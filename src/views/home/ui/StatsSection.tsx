@@ -1,5 +1,5 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { CountUp } from '@/shared/ui/CountUp'
 import { cn } from '@/shared/lib/cn'
@@ -11,8 +11,8 @@ const STATS = [
   { key: 'waitTime', icon: '/images/home/stat-wait-time.png', colSpan: 'sm:col-span-5' },
 ] as const
 
-export async function StatsSection() {
-  const t = await getTranslations('home.stats')
+export function StatsSection() {
+  const t = getTranslations('home.stats')
 
   return (
     <section className="bg-white px-6 py-20 lg:px-10">

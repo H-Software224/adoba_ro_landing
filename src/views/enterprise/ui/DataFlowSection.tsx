@@ -1,12 +1,12 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations } from '@/shared/i18n/compat'
+import { Image } from '@/shared/ui/Image'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 import { JsonLd } from '@/shared/seo/JsonLd'
 import { itemListSchema } from '@/shared/seo/schemas/item-list'
 import { SITE_URL } from '@/shared/lib/build-alternates'
 
-export async function DataFlowSection() {
-  const t = await getTranslations('enterprise.dataFlow')
+export function DataFlowSection() {
+  const t = getTranslations('enterprise.dataFlow')
 
   const schema = itemListSchema([
     { name: t('itemList.collect'), url: `${SITE_URL}/enterprise#data-flow` },
