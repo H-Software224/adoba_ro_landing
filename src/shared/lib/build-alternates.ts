@@ -1,6 +1,6 @@
 import { routing } from '@/shared/i18n/routing'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://home.adobaro.com'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://dev.home.adobaro.com'
 
 /**
  * Builds Next.js Metadata `alternates` (hreflang ko/en/x-default) for a locale-agnostic path.
