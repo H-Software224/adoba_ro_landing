@@ -1,4 +1,5 @@
 import { cn } from '@/shared/lib/cn'
+import { getAssetUrl } from '@/shared/lib/asset'
 
 interface ImageProps {
   src: string
@@ -12,10 +13,19 @@ interface ImageProps {
 }
 
 /** Drop-in replacement for `next/image`'s subset of props actually used in this codebase (no build-time optimization). */
-export function Image({ src, alt, width, height, fill, sizes, priority, className }: ImageProps) {
+export function Image({
+  src,
+  alt,
+  width,
+  height,
+  fill,
+  sizes,
+  priority,
+  className,
+}: ImageProps) {
   return (
     <img
-      src={src}
+      src={getAssetUrl(src)}
       alt={alt}
       width={fill ? undefined : width}
       height={fill ? undefined : height}

@@ -10,25 +10,30 @@ import { NewsPage } from '@/views/news'
 import { MagazinePage, ArticleDetailPage } from '@/views/magazine'
 import { EnterprisePage } from '@/views/enterprise'
 
-export const router = createBrowserRouter([
-  { index: true, element: <Navigate to={`/${routing.defaultLocale}`} replace /> },
+export const router = createBrowserRouter(
+  [
+    { index: true, element: <Navigate to={`/${routing.defaultLocale}`} replace /> },
+    {
+      path: ':locale',
+      element: <LocaleLayout />,
+      children: [
+        {
+          element: <MainLayout />,
+          children: [
+            { index: true, element: <HomePage /> },
+            { path: 'features', element: <FeaturesPage /> },
+            { path: 'pricing', element: <PricingPage /> },
+            { path: 'news', element: <NewsPage /> },
+            { path: 'magazine', element: <MagazinePage /> },
+            { path: 'magazine/:slug', element: <ArticleDetailPage /> },
+          ],
+        },
+        { path: 'enterprise', element: <EnterprisePage /> },
+      ],
+    },
+    { path: '*', element: <NotFoundPage /> },
+  ],
   {
-    path: ':locale',
-    element: <LocaleLayout />,
-    children: [
-      {
-        element: <MainLayout />,
-        children: [
-          { index: true, element: <HomePage /> },
-          { path: 'features', element: <FeaturesPage /> },
-          { path: 'pricing', element: <PricingPage /> },
-          { path: 'news', element: <NewsPage /> },
-          { path: 'magazine', element: <MagazinePage /> },
-          { path: 'magazine/:slug', element: <ArticleDetailPage /> },
-        ],
-      },
-      { path: 'enterprise', element: <EnterprisePage /> },
-    ],
+    basename: '/landing',
   },
-  { path: '*', element: <NotFoundPage /> },
-])
+)

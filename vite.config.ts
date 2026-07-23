@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/landing/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -17,4 +18,4 @@ export default defineConfig({
       '@/shared': path.resolve(dirname, './src/shared'),
     },
   },
-})
+}))
