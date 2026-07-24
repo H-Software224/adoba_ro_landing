@@ -22,10 +22,6 @@ const NAV_ITEMS = [
 ]
 
 const MAGAZINE_ARTICLE_IDS = [
-  'brand-visual',
-  'view-count',
-  'k-creator',
-  'live-vod',
   'subtitles',
   'view-drop',
   'subs-vs-views',

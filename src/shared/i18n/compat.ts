@@ -1,6 +1,23 @@
-import { cloneElement, isValidElement, type ReactNode } from 'react'
+import { cloneElement, isValidElement, useSyncExternalStore, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import i18n from './i18n'
+
+// `i18n.changeLanguage()` (called from an effect after a locale-route change)
+// resolves asynchronously, so a component that reads `i18n.language` directly
+// during render can catch it either before or after the flip depending on
+// unrelated render/commit timing — observed in practice as some components
+// (e.g. Header/Footer) staying one navigation behind while others (page
+// content) update immediately. Subscribing via `useSyncExternalStore` makes
+// every `getTranslations()` caller re-render deterministically on the actual
+// 'languageChanged' event instead of racing it.
+function subscribeToLanguageChange(onChange: () => void): () => void {
+  i18n.on('languageChanged', onChange)
+  return () => i18n.off('languageChanged', onChange)
+}
+
+function useActiveLanguage(): string {
+  return useSyncExternalStore(subscribeToLanguageChange, () => i18n.language, () => i18n.language)
+}
 
 /**
  * Drop-in replacement for next-intl's `getTranslations`/`useTranslations`
@@ -123,13 +140,24 @@ function splitNamespace(namespace: string): [string, string] {
   return [ns ?? '', rest.join('.')]
 }
 
-/** next-intl `getTranslations(namespace)` / `getTranslations({ locale, namespace })` / `getTranslations()`. */
+/**
+ * next-intl `getTranslations(namespace)` / `getTranslations({ locale, namespace })` / `getTranslations()`.
+ * Despite the name (matching next-intl's async server API this replaces),
+ * this is effectively a hook now — see `useActiveLanguage` above — so every
+ * call site must call it unconditionally during render, same as any hook.
+ */
 export function getTranslations(arg?: string | { locale?: string; namespace?: string }): CompatT {
+  // Named to match next-intl's API (see file header), not the `use*` hook
+  // convention — every call site does call it unconditionally at the top of
+  // a component, same as a real hook, just verify that when touching one.
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const activeLanguage = useActiveLanguage()
   const locale = typeof arg === 'object' ? arg.locale : undefined
   const namespace = typeof arg === 'string' ? arg : arg?.namespace
-  if (!namespace) return buildT(null, '', locale)
+  const lng = locale ?? activeLanguage
+  if (!namespace) return buildT(null, '', lng)
   const [ns, prefix] = splitNamespace(namespace)
-  return buildT(ns, prefix, locale)
+  return buildT(ns, prefix, lng)
 }
 
 /** next-intl `useTranslations(namespace)` — subscribes to i18next language changes. */
@@ -139,7 +167,8 @@ export function useTranslations(namespace: string): CompatT {
   return buildT(ns, prefix)
 }
 
-/** next-intl `getLocale()`. */
+/** next-intl `getLocale()` — also effectively a hook now, same reasoning as `getTranslations`. */
 export function getLocale(): string {
-  return i18n.language
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  return useActiveLanguage()
 }

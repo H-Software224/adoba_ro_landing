@@ -20,10 +20,12 @@ export function LocaleLayout() {
     void i18n.changeLanguage(locale)
   }, [isValidLocale, locale])
 
-  if (!isValidLocale) return <Navigate to={`/${routing.defaultLocale}`} replace />
-
+  // `getTranslations` is a hook internally (see compat.ts) — must stay above
+  // the early return below so it's called unconditionally every render.
   const t = getTranslations({ locale, namespace: 'nav' })
   const navLabels = Object.fromEntries(NAV_ITEMS.map((item) => [item.key, t(item.key)]))
+
+  if (!isValidLocale) return <Navigate to={`/${routing.defaultLocale}`} replace />
 
   return (
     <>
