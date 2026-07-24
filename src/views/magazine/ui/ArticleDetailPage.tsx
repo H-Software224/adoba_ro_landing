@@ -12,16 +12,25 @@ import { getMagazineArticleById } from '../model/articles'
 import { useArticleMeta } from '../model/metadata'
 
 export function ArticleDetailPage() {
-  const { slug } = useParams<{ slug: string }>()
+  const { locale, slug } = useParams<{ locale: string; slug: string }>()
 
   const t = getTranslations('magazine')
   const article = slug ? getMagazineArticleById(t, slug) : undefined
 
   useArticleMeta(article)
 
-  if (!article) return <Navigate to="/404" replace />
-
+  // `getTranslations` is a hook internally (see compat.ts) — both calls stay
+  // above the early return below so they're called unconditionally every
+  // render, even though their results are only used once `article` exists.
   const tBreadcrumb = getTranslations('magazine.breadcrumb')
+  const tArticle = getTranslations('magazine.article')
+
+  // No locale-agnostic "/404" route exists — navigating there would be
+  // re-matched as `:locale="404"` and bounce to home instead of 404. Staying
+  // under the current locale with a path no child route matches correctly
+  // falls through to the top-level `*` NotFoundPage.
+  if (!article) return <Navigate to={`/${locale}/404`} replace />
+
   const canonicalUrl = `${SITE_URL}/magazine/${article.id}`
 
   const schema = blogPostingSchema({
@@ -43,7 +52,6 @@ export function ArticleDetailPage() {
     { name: article.title, url: canonicalUrl },
   ])
 
-  const tArticle = getTranslations('magazine.article')
   const faqSchema = article.faq ? faqPageSchema(article.faq) : null
 
   return (
